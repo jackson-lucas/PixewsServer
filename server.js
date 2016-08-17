@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict'
 // "token": "8a73EicEi3Ersr"
+var Joi = require('joi')
 var firebase = require('firebase')
 
 firebase.initializeApp({
@@ -51,6 +52,16 @@ server.route({
     var key = novaEmpresa.key
     delete novaEmpresa.key
     reply({'token': token, 'key': key, 'user': novaEmpresa})
+  },
+  config: {
+    validate: {
+      payload: {
+        email: Joi.string().email(),
+        cnpj: Joi.string(),
+        nome: Joi.string(),
+        pais: Joi.string()
+      }
+    }
   }
 })
 
@@ -125,16 +136,37 @@ server.route({
   method: 'PATCH',
   path: '/fotografo',
   handler: function (request, reply) {
-    fotografos.set(request.payload)
+    fotografos.child(request.payload.key).set(request.payload.user)
   }
 })
 
-// pontuar({fotografo_id, imagem_id, valor})
+// pontuar({foto_id, empresa_id, fotografo_id})
 server.route({
   method: 'PATCH',
-  path: '/rank',
+  path: '/transaction',
   handler: function (request, reply) {
-    // fotografos.set(request.payload)
+    // Atualizando pontuação do fotografo
+    var fotografoReference = fotografos.child(request.payload.fotografo_key)
+
+    fotografoReference.on('value', function (snapshot) {
+      var fotografo = snapshot.val()
+      console.log(fotografo)
+      fotografo.pontos += 30
+
+      fotografos
+        .child(request.payload.fotografo_key)
+        .update({'pontos': fotografo.pontos})
+    })
+
+    // Atualizando compras da empresa
+    var empresaReference
+    = empresas
+      .child(request.payload.empresa_key)
+      .on('value', function (snapshot) {
+        var empresa = snapshot.val()
+        // TODO analisar como array se comporta no firebase, se é possível fazer push manaual
+        // empresa.compras.push(request.payload.foto_key)
+      })
   }
 })
 
