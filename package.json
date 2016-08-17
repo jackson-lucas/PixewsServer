@@ -1,8 +1,17 @@
 {
   "name": "pixews_server",
   "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "main": "server.js",
   "dependencies": {
+    "firebase": "^3.2.1",
+    "good": "^7.0.1",
+    "good-console": "^6.1.2",
     "hapi": "^13.5.0",
-    "rethinkdbdash": "^2.3.16"
+    "inert": "^4.0.1"
   }
 }
