@@ -13,5 +13,8 @@
     "good-console": "^6.1.2",
     "hapi": "^13.5.0",
     "inert": "^4.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.0"
   }
 }
