@@ -127,7 +127,12 @@ server.route({
   method: 'PATCH',
   path: '/empresa',
   handler: function (request, reply) {
-    empresas.set(request.payload)
+    if(TokenGenerator.isValid(request.payload.token)) {
+      empresas.set(request.payload.user)
+      reply({'message': 'ok'})
+    } else {
+      reply({'message': 'token not valid'})
+    }
   }
 })
 
@@ -136,7 +141,12 @@ server.route({
   method: 'PATCH',
   path: '/fotografo',
   handler: function (request, reply) {
-    fotografos.child(request.payload.key).set(request.payload.user)
+    if(TokenGenerator.isValid(request.payload.token)) {
+      fotografos.child(request.payload.key).set(request.payload.user)
+      reply({'message': 'ok'})
+    } else {
+      reply({'message': 'token not valid'})
+    }
   }
 })
 
@@ -145,11 +155,13 @@ server.route({
   method: 'PATCH',
   path: '/transaction',
   handler: function (request, reply) {
-    // Atualizando pontuação do fotografo
-    var fotografoReference = fotografos.child(request.payload.fotografo_key)
+    // // Atualizando pontuação do fotografo
+    var fotografoReference
+    = fotografos.child(request.payload.fotografo_key).limitToFirst(1)
 
     fotografoReference.on('value', function (snapshot) {
       var fotografo = snapshot.val()
+      console.log('fotografo')
       console.log(fotografo)
       fotografo.pontos += 30
 
@@ -157,16 +169,17 @@ server.route({
         .child(request.payload.fotografo_key)
         .update({'pontos': fotografo.pontos})
     })
-
-    // Atualizando compras da empresa
-    var empresaReference
-    = empresas
-      .child(request.payload.empresa_key)
-      .on('value', function (snapshot) {
-        var empresa = snapshot.val()
-        // TODO analisar como array se comporta no firebase, se é possível fazer push manaual
-        // empresa.compras.push(request.payload.foto_key)
-      })
+    //
+    // // Atualizando compras da empresa
+    // var empresaReference
+    // = empresas
+    //   .child(request.payload.empresa_key)
+    //   .on('value', function (snapshot) {
+    //     var empresa = snapshot.val()
+    //     console.log(empresa)
+    //     // TODO analisar como array se comporta no firebase, se é possível fazer push manaual
+    //     // empresa.compras.push(request.payload.foto_key)
+    //   })
   }
 })
 
