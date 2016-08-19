@@ -36,7 +36,7 @@ server.route({
     var key = novoFotografo.key
     delete novoFotografo.key
 
-    reply({'token': token, 'key': key, 'user': novoFotografo})
+    reply({'token': token, 'chave': key, 'usuario': novoFotografo})
   }
 })
 
@@ -51,7 +51,7 @@ server.route({
     delete novaEmpresa.senha
     var key = novaEmpresa.key
     delete novaEmpresa.key
-    reply({'token': token, 'key': key, 'user': novaEmpresa})
+    reply({'token': token, 'chave': key, 'usuario': novaEmpresa})
   },
   config: {
     validate: {
@@ -86,7 +86,7 @@ server.route({
 
           delete user.senha
 
-          reply({'token': token, 'key': key, 'user': user})
+          reply({'token': token, 'chave': key, 'usuario': user})
         } else {
           reply({'error': 401 })
         }
@@ -114,7 +114,7 @@ server.route({
 
           delete user.senha
 
-          reply({'token': token, 'key': key, 'user': user})
+          reply({'token': token, 'chave': key, 'usuario': user})
         } else {
           reply({'error': 401 })
         }
@@ -129,9 +129,9 @@ server.route({
   handler: function (request, reply) {
     if(TokenGenerator.isValid(request.payload.token)) {
       empresas.set(request.payload.user)
-      reply({'message': 'ok'})
+      reply({'mensagem': 'ok'})
     } else {
-      reply({'message': 'token not valid'})
+      reply({'mensagem': 'token not valid'})
     }
   }
 })
@@ -143,9 +143,9 @@ server.route({
   handler: function (request, reply) {
     if(TokenGenerator.isValid(request.payload.token)) {
       fotografos.child(request.payload.key).set(request.payload.user)
-      reply({'message': 'ok'})
+      reply({'mensagem': 'ok'})
     } else {
-      reply({'message': 'token not valid'})
+      reply({'mensagem': 'token not valid'})
     }
   }
 })
@@ -156,19 +156,19 @@ server.route({
   path: '/transaction',
   handler: function (request, reply) {
     // // Atualizando pontuação do fotografo
-    var fotografoReference
-    = fotografos.child(request.payload.fotografo_key).limitToFirst(1)
-
-    fotografoReference.on('value', function (snapshot) {
-      var fotografo = snapshot.val()
-      console.log('fotografo')
-      console.log(fotografo)
-      fotografo.pontos += 30
-
-      fotografos
-        .child(request.payload.fotografo_key)
-        .update({'pontos': fotografo.pontos})
-    })
+    // var fotografoReference
+    // = fotografos.child(request.payload.fotografo_chave).limitToFirst(1)
+    //
+    // fotografoReference.on('value', function (snapshot) {
+    //   var fotografo = snapshot.val()
+    //   console.log('fotografo')
+    //   console.log(fotografo)
+    //   fotografo.pontos = parseInt(fotografo.pontos) + 30
+    //   console.log(fotografo.pontos)
+    //   fotografos
+    //     .child(request.payload.fotografo_chave)
+    //     .update({'pontos': fotografo.pontos})
+    // })
     //
     // // Atualizando compras da empresa
     // var empresaReference
