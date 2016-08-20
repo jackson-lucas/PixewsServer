@@ -1,6 +1,6 @@
 {
   "name": "pixews_server",
-  "version": "0.0.1",
+  "version": "0.6.3",
   "private": true,
   "scripts": {
     "start": "node server.js",

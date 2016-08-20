@@ -21,7 +21,10 @@ var TokenGenerator = require('token-generator')({
 const Hapi = require('hapi')
 
 const server = new Hapi.Server()
-server.connection({ port: 8080 })
+server.connection({
+  host: process.env.HOSTNAME || 'localhost',
+  port: process.env.PORT || 3000
+})
 
 server.register(
     [require('vision'), require('inert'), { register: require('lout') }],
