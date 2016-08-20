@@ -1,6 +1,6 @@
 {
   "name": "pixews_server",
-  "version": "0.6.3",
+  "version": "0.8.2",
   "private": true,
   "scripts": {
     "start": "forever start server.js",
