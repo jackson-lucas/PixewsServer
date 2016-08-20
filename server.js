@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict'
-// "token": "8a73EicEi3Ersr"
+
 var Joi = require('joi')
 var firebase = require('firebase')
 
@@ -31,6 +31,66 @@ server.register(
     function(err) {
       console.log(err)
 });
+
+server.route({
+  method: 'GET',
+  path: '/empresa',
+  handler: function (request, reply) {
+    if(TokenGenerator.isValid(request.headers.token)) {
+      empresas.child(request.query.chave).on('value', function (snapshot) {
+        var empresa = snapshot.val()
+        delete empresa.senha
+
+        reply(empresa)
+      })
+    }
+  },
+  config: {
+    description: 'Retornar Empresa',
+    notes: `
+    @required atributo token:string em Headers<br>
+    @example api.pixews.com/empresa?chave=-KPO80sjVWDUy4ATCZc9<br>
+    @return Empresa`,
+    validate: {
+      headers: Joi.object({
+        token: Joi.string().required()
+      }).options({ allowUnknown: true }),
+      query: Joi.object({
+        chave: Joi.string()
+      })
+    }
+  }
+})
+
+server.route({
+  method: 'GET',
+  path: '/fotografo',
+  handler: function (request, reply) {
+    if(TokenGenerator.isValid(request.headers.token)) {
+      fotografos.child(request.query.chave).on('value', function (snapshot) {
+        var fotografo = snapshot.val()
+        delete fotografo.senha
+
+        reply(fotografo)
+      })
+    }
+  },
+  config: {
+    description: 'Retornar Fotografo',
+    notes: `
+    @required atributo token:string em Headers<br>
+    @example api.pixews.com/fotografo?chave=-KPO80sjVWDUy4ATCZc9<br>
+    @return Fotografo`,
+    validate: {
+      headers: Joi.object({
+        token: Joi.string().required()
+      }).options({ allowUnknown: true }),
+      query: Joi.object({
+        chave: Joi.string()
+      })
+    }
+  }
+})
 
 // criar_fotografo({nome, email, pais, estado})
 server.route({
