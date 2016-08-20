@@ -252,7 +252,7 @@ server.route({
   method: 'PATCH',
   path: '/empresa',
   handler: function (request, reply) {
-    if(TokenGenerator.isValid(request.payload.token)) {
+    if(TokenGenerator.isValid(request.headers.token)) {
       empresas.set(request.payload.user)
       reply({'mensagem': 'ok'})
     } else {
@@ -261,9 +261,13 @@ server.route({
   },
   config: {
     description: 'Alterar Empresa',
-    notes: `@return 200 {mensagem: "ok"}<br>
+    notes: `@required atributo token:string em Headers<br>
+            @return 200 {mensagem: "ok"}<br>
             @return 400 {mensagem: string}`,
     validate: {
+      headers: Joi.object({
+        token: Joi.string().required()
+      }).options({ allowUnknown: true }),
       payload: Joi.object({
         token: Joi.string(),
         user: Joi.object({
@@ -286,7 +290,7 @@ server.route({
   method: 'PATCH',
   path: '/fotografo',
   handler: function (request, reply) {
-    if(TokenGenerator.isValid(request.payload.token)) {
+    if(TokenGenerator.isValid(request.headers.token)) {
       fotografos.child(request.payload.key).set(request.payload.user)
       reply({'mensagem': 'ok'})
     } else {
@@ -295,9 +299,13 @@ server.route({
   },
   config: {
     description: 'Alterar Fotografo',
-    notes: `@return 200 {mensagem: "ok"}<br>
+    notes: `@required atributo token:string em Headers<br>
+            @return 200 {mensagem: "ok"}<br>
             @return 400 {mensagem: string}`,
     validate: {
+      headers: Joi.object({
+        token: Joi.string().required()
+      }).options({ allowUnknown: true }),
       payload: Joi.object({
         token: Joi.string(),
         user: Joi.object({
