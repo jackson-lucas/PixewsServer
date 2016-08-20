@@ -260,6 +260,7 @@ server.route({
   method: 'PUT',
   path: '/transacao',
   handler: function (request, reply) {
+    reply('ok')
     // // Atualizando pontuação do fotografo
     // var fotografoReference
     // = fotografos.child(request.payload.fotografo_chave).limitToFirst(1)

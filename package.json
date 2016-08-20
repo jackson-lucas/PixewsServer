@@ -3,12 +3,13 @@
   "version": "0.6.3",
   "private": true,
   "scripts": {
-    "start": "node server.js",
+    "start": "forever start server.js",
     "dev": "nodemon server.js"
   },
   "main": "server.js",
   "dependencies": {
     "firebase": "^3.2.1",
+    "forever": "^0.15.2",
     "good": "^7.0.1",
     "good-console": "^6.1.2",
     "hapi": "^13.5.0",
