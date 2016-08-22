@@ -4,6 +4,7 @@
 const empresa = require('./routes/empresa.js')
 const fotografo = require('./routes/fotografo.js')
 const transacao = require('./routes/transacao.js')
+const imagens = require('./routes/imagens.js')
 
 const Hapi = require('hapi')
 
@@ -39,6 +40,8 @@ server.route(empresa.patch)
 
 // pontuar({foto_id, empresa_id, fotografo_id})
 server.route(transacao.put)
+
+server.route(imagens.get)
 
 server.start((err) => {
 
