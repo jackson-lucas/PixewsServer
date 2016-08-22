@@ -22,18 +22,12 @@ const get = {
 
       reqwest(`http://ec2-54-197-15-18.compute-1.amazonaws.com:8983/solr/gettingstarted/select?wt=json&indent=true&q=${query}`, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-          reply(body)
+          body = JSON.parse(body)
+          reply(body.response.docs)
         } else {
           reply({})
         }
       })
-
-
-      // request(`http://ec2-54-197-15-18.compute-1.amazonaws.com:8983/solr/gettingstarted/select?wt=json&indent=true&q=`, function (error, response, body) {
-      //   if (!error && response.statusCode == 200) {
-      //     console.log(body) // Show the HTML for the Google homepage.
-      //   }
-      // })
     } else {
       reply({})
     }
@@ -43,8 +37,8 @@ const get = {
     description: 'Busca de Imagens por Tags',
     notes: `
     @required atributo token:string em Headers<br>
-    @example api.pixews.com/imagens?tags=<br>
-    @return Imagem[]`,
+    @example api.pixews.com/imagens?tags=olimpiada+futebol<br>
+    @return SolrResponse`,
     validate: {
       headers: Joi.object({
         token: Joi.string().required()

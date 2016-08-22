@@ -22,6 +22,7 @@ server.register(
 
 
 server.route(fotografo.get)
+server.route(fotografo.getImagens)
 // criar_fotografo({nome, email, pais, estado})
 server.route(fotografo.put)
 // login_do_fotografo ({email, senha})
