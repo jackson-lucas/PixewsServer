@@ -3,6 +3,7 @@ var db = require('../utilities/database.js')
 var empresas = db.empresas
 var fotografos = db.fotografos
 var TokenGenerator = require('../utilities/token.js')
+var reqwest = require('request')
 
 const get = {
   method: 'GET',
@@ -22,6 +23,48 @@ const get = {
     notes: `
     @required atributo token:string em Headers<br>
     @example api.pixews.com/fotografo?chave=-KPO80sjVWDUy4ATCZc9<br>
+    @return Fotografo`,
+    validate: {
+      headers: Joi.object({
+        token: Joi.string().required()
+      }).options({ allowUnknown: true }),
+      query: Joi.object({
+        chave: Joi.string()
+      })
+    }
+  }
+}
+
+const getImagens = {
+  method: 'GET',
+  path: '/fotografo/imagens',
+  handler: function (request, reply) {
+    if(TokenGenerator.isValid(request.headers.token)) {
+      // http://ec2-54-197-15-18.compute-1.amazonaws.com:8983/solr/gettingstarted/select?wt=json&indent=true&q=fotografo_id:12
+      reqwest(`http://ec2-54-197-15-18.compute-1.amazonaws.com:8983/solr/gettingstarted/select?wt=json&indent=true&q=fotografo_id:${request.query.chave}`,
+      function (error, response, body) {
+
+        if (!error && response.statusCode == 200) {
+          body = JSON.parse(body)
+          if (body.response) {
+
+            reply(body.response.docs)
+          } else {
+            reply(body)
+          }
+        } else {
+          reply({})
+        }
+      })
+    } else {
+      reply({})
+    }
+  },
+  config: {
+    description: 'Retornar Imagens do Fotografo',
+    notes: `
+    @required atributo token:string em Headers<br>
+    @example api.pixews.com/fotografo/imagens<br>
     @return Fotografo`,
     validate: {
       headers: Joi.object({
@@ -149,6 +192,7 @@ const patch = {
 
 module.exports = {
   'get': get,
+  'getImagens': getImagens,
   'put': put,
   'post': post,
   'patch': patch
