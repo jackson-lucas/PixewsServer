@@ -64,7 +64,7 @@ const getImagens = {
     description: 'Retornar Imagens do Fotografo',
     notes: `
     @required atributo token:string em Headers<br>
-    @example api.pixews.com/fotografo/imagens<br>
+    @example api.pixews.com/fotografo/imagens?chave=12<br>
     @return Fotografo`,
     validate: {
       headers: Joi.object({
