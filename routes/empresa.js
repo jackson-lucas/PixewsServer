@@ -34,6 +34,35 @@ const get = {
   }
 }
 
+const getImagens = {
+  method: 'GET',
+  path: '/empresa/imagens',
+  handler: function (request, reply) {
+    if(TokenGenerator.isValid(request.headers.token)) {
+      empresas.child(request.query.chave).on('value', function (snapshot) {
+        var empresa = snapshot.val()
+
+        reply(empresa.compras)
+      })
+    }
+  },
+  config: {
+    description: 'Retornar Imagens de uma Empresa',
+    notes: `
+    @required atributo token:string em Headers<br>
+    @example api.pixews.com/empresa?chave=-KPO80sjVWDUy4ATCZc9<br>
+    @return Id's de Imagens`,
+    validate: {
+      headers: Joi.object({
+        token: Joi.string().required()
+      }).options({ allowUnknown: true }),
+      query: Joi.object({
+        chave: Joi.string()
+      })
+    }
+  }
+}
+
 const put = {
   method: 'PUT',
   path: '/empresa',
@@ -148,6 +177,7 @@ const patch = {
 
 module.exports = {
   'get': get,
+  'getImagens': getImagens,
   'put': put,
   'post': post,
   'patch': patch

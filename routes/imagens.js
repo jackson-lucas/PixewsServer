@@ -50,6 +50,53 @@ const get = {
   }
 }
 
+const getMaisVendidas = {
+  method: 'GET',
+  path: '/imagens/mais-vendidas',
+  handler: function (request, reply) {
+    if(TokenGenerator.isValid(request.headers.token)) {
+      var query = ''
+      var parameters = request.query.tags.split(' ')
+
+      query = '%2B' + parameters[0]
+
+      var index;
+      for (index = 1; index < parameters.length; index++) {
+        query += '+%2B' + parameters[index]
+      }
+
+      reqwest(`http://ec2-54-197-15-18.compute-1.amazonaws.com:8983/solr/gettingstarted/select?wt=json&indent=true&q=${query}`, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          body = JSON.parse(body)
+          reply(body.response.docs)
+        } else {
+          reply({})
+        }
+      })
+    } else {
+      reply({})
+    }
+
+  },
+  config: {
+    description: 'Busca as Imagens Mais Vendidas (Melhores Imagens)',
+    notes: `
+    <strong>EM DESENVOLVIMENTO</strong><br>
+    @required atributo token:string em Headers<br>
+    @example api.pixews.com/imagens?tags=olimpiada+futebol<br>
+    @return SolrResponse`,
+    validate: {
+      headers: Joi.object({
+        token: Joi.string().required()
+      }).options({ allowUnknown: true }),
+      query: Joi.object({
+        tags: Joi.string()
+      })
+    }
+  }
+}
+
 module.exports = {
-  'get': get
+  'get': get,
+  'getMaisVendidas': getMaisVendidas
 }
