@@ -71,16 +71,14 @@ const put = {
   path: '/empresa',
   handler: function (request, reply) {
     var empresa = request.payload
-    var novaEmpresa = empresas.push(empresa)
+    var novaReferencia = empresas.push(empresa)
     var token = TokenGenerator.generate()
-    delete novaEmpresa.senha
-    var key = novaEmpresa.key
-    delete novaEmpresa.key
-    reply({'token': token, 'chave': key, 'usuario': novaEmpresa})
+    var key = novaReferencia.key
+    reply({'token': token, 'chave': key})
   },
   config: {
     description: 'Criar Empresa',
-    notes: '@return {token: string, chave: string, usuario: Empresa}',
+    notes: '@return {token: string, chave: string}',
     validate: {
       payload: Joi.object({
         email: Joi.string().email(),
@@ -146,7 +144,7 @@ const patch = {
   path: '/empresa',
   handler: function (request, reply) {
     if(TokenGenerator.isValid(request.headers.token)) {
-      empresas.set(request.payload.user)
+      empresas.child(request.payload.key).update(request.payload.user)
       reply({'mensagem': 'ok'})
     } else {
       reply({'mensagem': 'token not valid'})

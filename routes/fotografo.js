@@ -161,7 +161,7 @@ const patch = {
   path: '/fotografo',
   handler: function (request, reply) {
     if(TokenGenerator.isValid(request.headers.token)) {
-      fotografos.child(request.payload.key).set(request.payload.user)
+      fotografos.child(request.payload.key).update(request.payload.user)
       reply({'mensagem': 'ok'})
     } else {
       reply({'mensagem': 'token not valid'})

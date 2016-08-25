@@ -13,6 +13,7 @@ var empresas = db.ref('/empresas')
 var fotografos = db.ref('/fotografos')
 
 module.exports = {
+  'source': db,
   'empresas': empresas,
   'fotografos': fotografos
 }
