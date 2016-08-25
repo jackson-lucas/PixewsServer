@@ -87,12 +87,9 @@ const put = {
     var fotografo = request.payload
     var novoFotografo = fotografos.push(fotografo)
     var token = TokenGenerator.generate()
-
-    delete novoFotografo.senha
     var key = novoFotografo.key
-    delete novoFotografo.key
 
-    reply({'token': token, 'chave': key, 'usuario': novoFotografo})
+    reply({'token': token, 'chave': key})
   },
   config: {
     description: 'Criar Fotografo',
