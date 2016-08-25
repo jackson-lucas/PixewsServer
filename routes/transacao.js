@@ -1,3 +1,6 @@
+// <Pixews Server>
+// Copyright (C) 2016  Jackson Lucas <jackson7br@gmail.com>
+
 var Joi = require('joi')
 var db = require('../utilities/database.js')
 var empresas = db.empresas

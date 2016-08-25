@@ -1,3 +1,6 @@
+// <Pixews Server>
+// Copyright (C) 2016  Jackson Lucas <jackson7br@gmail.com>
+
 var firebase = require('firebase')
 
 firebase.initializeApp({

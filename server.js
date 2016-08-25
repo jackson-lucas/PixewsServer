@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+
+// <Pixews Server>
+// Copyright (C) 2016  Jackson Lucas <jackson7br@gmail.com>
+
 'use strict'
 
 const empresa = require('./routes/empresa.js')
