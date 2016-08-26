@@ -16,7 +16,10 @@ const Hapi = require('hapi')
 const server = new Hapi.Server()
 server.connection({
   host: process.env.HOSTNAME || 'localhost',
-  port: process.env.PORT || 3000
+  port: process.env.PORT || 3000,
+  routes: {
+    cors: true
+  }
 })
 
 server.register(
