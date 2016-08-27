@@ -1,3 +1,6 @@
+// <Pixews Server>
+// Copyright (C) 2016  Jackson Lucas <jackson7br@gmail.com>
+
 var firebase = require('firebase')
 
 firebase.initializeApp({
@@ -10,6 +13,7 @@ var empresas = db.ref('/empresas')
 var fotografos = db.ref('/fotografos')
 
 module.exports = {
+  'source': db,
   'empresas': empresas,
   'fotografos': fotografos
 }

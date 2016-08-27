@@ -1,3 +1,6 @@
+// <Pixews Server>
+// Copyright (C) 2016  Jackson Lucas <jackson7br@gmail.com>
+
 var Joi = require('joi')
 var db = require('../utilities/database.js')
 var empresas = db.empresas
@@ -34,21 +37,48 @@ const get = {
   }
 }
 
+const getImagens = {
+  method: 'GET',
+  path: '/empresa/imagens',
+  handler: function (request, reply) {
+    if(TokenGenerator.isValid(request.headers.token)) {
+      empresas.child(request.query.chave).on('value', function (snapshot) {
+        var empresa = snapshot.val()
+
+        reply(empresa.compras)
+      })
+    }
+  },
+  config: {
+    description: 'Retornar Imagens de uma Empresa',
+    notes: `
+    @required atributo token:string em Headers<br>
+    @example api.pixews.com/empresa?chave=-KPO80sjVWDUy4ATCZc9<br>
+    @return Id's de Imagens`,
+    validate: {
+      headers: Joi.object({
+        token: Joi.string().required()
+      }).options({ allowUnknown: true }),
+      query: Joi.object({
+        chave: Joi.string()
+      })
+    }
+  }
+}
+
 const put = {
   method: 'PUT',
   path: '/empresa',
   handler: function (request, reply) {
     var empresa = request.payload
-    var novaEmpresa = empresas.push(empresa)
+    var novaReferencia = empresas.push(empresa)
     var token = TokenGenerator.generate()
-    delete novaEmpresa.senha
-    var key = novaEmpresa.key
-    delete novaEmpresa.key
-    reply({'token': token, 'chave': key, 'usuario': novaEmpresa})
+    var key = novaReferencia.key
+    reply({'token': token, 'chave': key})
   },
   config: {
     description: 'Criar Empresa',
-    notes: '@return {token: string, chave: string, usuario: Empresa}',
+    notes: '@return {token: string, chave: string}',
     validate: {
       payload: Joi.object({
         email: Joi.string().email(),
@@ -114,7 +144,7 @@ const patch = {
   path: '/empresa',
   handler: function (request, reply) {
     if(TokenGenerator.isValid(request.headers.token)) {
-      empresas.set(request.payload.user)
+      empresas.child(request.payload.chave).update(request.payload.user)
       reply({'mensagem': 'ok'})
     } else {
       reply({'mensagem': 'token not valid'})
@@ -130,14 +160,14 @@ const patch = {
         token: Joi.string().required()
       }).options({ allowUnknown: true }),
       payload: Joi.object({
-        token: Joi.string(),
+        chave: Joi.string().required(),
         user: Joi.object({
           email: Joi.string().email().optional().notes('Opcional'),
           nome: Joi.string().optional().notes('Opcional'),
           pais: Joi.string().optional().notes('Opcional')
         })
       }).example({
-        'token': '-KPLQFyeto3QWooOPdjr',
+        'chave': '-KQ1anjlocpsi-zSshkt',
         'user': {
           'nome': 'Rede TV'
         }
@@ -148,6 +178,7 @@ const patch = {
 
 module.exports = {
   'get': get,
+  'getImagens': getImagens,
   'put': put,
   'post': post,
   'patch': patch

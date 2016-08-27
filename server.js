@@ -1,17 +1,25 @@
 #!/usr/bin/env node
+
+// <Pixews Server>
+// Copyright (C) 2016  Jackson Lucas <jackson7br@gmail.com>
+
 'use strict'
 
 const empresa = require('./routes/empresa.js')
 const fotografo = require('./routes/fotografo.js')
 const transacao = require('./routes/transacao.js')
 const imagens = require('./routes/imagens.js')
+const imagem = require('./routes/imagem.js')
 
 const Hapi = require('hapi')
 
 const server = new Hapi.Server()
 server.connection({
   host: process.env.HOSTNAME || 'localhost',
-  port: process.env.PORT || 3000
+  port: process.env.PORT || 3000,
+  routes: {
+    cors: true
+  }
 })
 
 server.register(
@@ -32,6 +40,7 @@ server.route(fotografo.patch)
 
 
 server.route(empresa.get)
+server.route(empresa.getImagens)
 // criar_empresa({nome, cnpj, pais, foto?, site?:[{nome, link}]})
 server.route(empresa.put)
 // login_da_empresa ({email, senha})
@@ -43,6 +52,9 @@ server.route(empresa.patch)
 server.route(transacao.put)
 
 server.route(imagens.get)
+server.route(imagens.getMaisVendidas)
+
+server.route(imagem.get)
 
 server.start((err) => {
 
