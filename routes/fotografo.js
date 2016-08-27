@@ -158,7 +158,7 @@ const patch = {
   path: '/fotografo',
   handler: function (request, reply) {
     if(TokenGenerator.isValid(request.headers.token)) {
-      fotografos.child(request.payload.key).update(request.payload.user)
+      fotografos.child(request.payload.chave).update(request.payload.user)
       reply({'mensagem': 'ok'})
     } else {
       reply({'mensagem': 'token not valid'})
@@ -174,14 +174,14 @@ const patch = {
         token: Joi.string().required()
       }).options({ allowUnknown: true }),
       payload: Joi.object({
-        token: Joi.string(),
+        chave: Joi.string().required(),
         user: Joi.object({
           nome: Joi.string().optional().notes('Opcional'),
           estado: Joi.string().optional().notes('Opcional'),
           pais: Joi.string().optional().notes('Opcional')
         })
       }).example({
-        'token': '-KPLQFyeto3QWooOPdjr',
+        'chave': '-KPLQFyeto3QWooOPdjr',
         'user': {
           'nome': 'Leandro Okimoto'
         }

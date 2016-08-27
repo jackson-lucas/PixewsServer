@@ -144,7 +144,7 @@ const patch = {
   path: '/empresa',
   handler: function (request, reply) {
     if(TokenGenerator.isValid(request.headers.token)) {
-      empresas.child(request.payload.key).update(request.payload.user)
+      empresas.child(request.payload.chave).update(request.payload.user)
       reply({'mensagem': 'ok'})
     } else {
       reply({'mensagem': 'token not valid'})
@@ -160,14 +160,14 @@ const patch = {
         token: Joi.string().required()
       }).options({ allowUnknown: true }),
       payload: Joi.object({
-        token: Joi.string(),
+        chave: Joi.string().required(),
         user: Joi.object({
           email: Joi.string().email().optional().notes('Opcional'),
           nome: Joi.string().optional().notes('Opcional'),
           pais: Joi.string().optional().notes('Opcional')
         })
       }).example({
-        'token': '-KPLQFyeto3QWooOPdjr',
+        'chave': '-KQ1anjlocpsi-zSshkt',
         'user': {
           'nome': 'Rede TV'
         }
