@@ -1,6 +1,5 @@
 // <Pixews Server>
 // Copyright (C) 2016  Jackson Lucas <jackson7br@gmail.com>
-
 var Joi = require('joi')
 var db = require('../utilities/database.js')
 var empresas = db.empresas
@@ -8,44 +7,71 @@ var fotografos = db.fotografos
 var TokenGenerator = require('../utilities/token.js')
 var Promise = require('bluebird')
 
+function addPointsAsync(request, reply) {
+  return new Promise (function (resolve, reject) {
+
+    var pontos = db.source.ref(`/fotografos/${request.payload.fotografo_chave}/pontos`)
+
+    pontos.transaction(
+      function (currentValue) {
+        return (currentValue || 0) + 30
+      },
+      function (error, isCommitted, snapshot) {
+        // console.log(snapshot.val())
+        if (isCommitted) {
+          resolve()
+        } else {
+          reject(error)
+        }
+    })
+  })
+}
+
+function addCompraAsync(request, reply) {
+  return new Promise (function (resolve, reject) {
+    var comprasReference
+    = db.source.ref(`/empresas/${request.payload.empresa_chave}/compras`)
+
+    comprasReference.transaction(
+      function (currentValue) {
+        if (currentValue) {
+          currentValue.push(request.payload.foto_chave)
+        } else {
+          currentValue = [request.payload.foto_chave]
+        }
+        return currentValue
+      },
+      function (error, isCommitted, snapshot) {
+        // console.log(snapshot.val())
+        if (isCommitted) {
+          resolve()
+        } else {
+          reject(error)
+        }
+    })
+  })
+}
+
 const put = {
   method: 'PUT',
   path: '/transacao',
   handler: function (request, reply) {
-    // Atualizando pontuação do fotografo
-    // TODO Apply chain of events, promise, async or highland
-    var pontos = db.source.ref(`/fotografos/${request.payload.fotografo_chave}/pontos`)
-    pontos.transaction(function (currentValue) {
-      return (currentValue || 0) + 30
-    },
-    function (error, isCommitted, snapshot) {
-      console.log(snapshot.val())
-      if (isCommitted) {
-        reply('ok')
-        return
-      }
-      if (error) {
-        console.error(error)
-        reply('erro')
-        return
-      }
+
+    Promise.all(
+      [addPointsAsync(request, reply), addCompraAsync(request, reply)
+    ])
+    .then(() => {
+      reply({message:'ok'})
+    })
+    .catch(error => {
+      reply({message: 'erro'})
     })
 
-    // Atualizando compras da empresa
-    // var empresaReference
-    // = empresas
-    //   .child(request.payload.empresa_key)
-    //   .on('value', function (snapshot) {
-    //     var empresa = snapshot.val()
-    //     console.log(empresa)
-    //     // TODO analisar como array se comporta no firebase, se é possível fazer push manual
-    //     // empresa.compras.push(request.payload.foto_key)
-      // })
   },
   config: {
     description: 'Registrar Compra - <strong>Em Desenvolvimento</strong>',
     notes: `@return 200 {mensagem: "ok"}<br>
-            @return 400 {mensagem: string}`,
+            @return 400 {mensagem: "erro"}`,
     validate: {
       headers: Joi.object({
         token: Joi.string().required()
