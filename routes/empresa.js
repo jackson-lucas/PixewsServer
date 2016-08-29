@@ -54,7 +54,7 @@ const getImagens = {
     notes: `
     @required atributo token:string em Headers<br>
     @example api.pixews.com/empresa?chave=-KPO80sjVWDUy4ATCZc9<br>
-    @return Id's de Imagens`,
+    @return Array<Id's de Imagens>`,
     validate: {
       headers: Joi.object({
         token: Joi.string().required()
