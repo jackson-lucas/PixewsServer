@@ -28,7 +28,7 @@ server.register(
         exposeHeaders: ['content-type', 'content-length'],
         maxAge: 600,
         methods: ['POST, GET, OPTIONS, PUT, PATCH'],
-        headers: ['Accept', 'Content-Type', 'token']
+        headers: ['Access-Control-Allow-Origin', 'Accept', 'Content-Type', 'token']
       }
     }],
     function(err) {

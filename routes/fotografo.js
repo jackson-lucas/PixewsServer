@@ -123,6 +123,11 @@ const post = {
         var token, key
 
         user = snapshot.val()
+
+        if (!user) {
+          return reply({'erro': 'Usuário não encontrado'})
+        }
+
         key = Object.keys(user)[0]
         user = user[key]
 
