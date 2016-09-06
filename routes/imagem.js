@@ -31,7 +31,7 @@ const post = {
         debug('success')
         // Update Index
         // cmd.run(`java -jar post.jar ${file}`)
-        cmd.run(`../solr/bin/post -c gettingstarted ${file}`)
+        cmd.run(`../solr/bin/post -c pixews ${file}`)
       }
     })
 

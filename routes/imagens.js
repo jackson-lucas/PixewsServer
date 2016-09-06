@@ -23,7 +23,7 @@ const get = {
         query += '+%2B' + parameters[index]
       }
 
-      reqwest(`http://ec2-54-197-15-18.compute-1.amazonaws.com:8983/solr/gettingstarted/select?wt=json&indent=true&q=${query}`, function (error, response, body) {
+      reqwest(`http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}`, function (error, response, body) {
         if (!error && response.statusCode == 200) {
           body = JSON.parse(body)
           reply(body.response.docs)
@@ -68,7 +68,7 @@ const getMaisVendidas = {
         query += '+%2B' + parameters[index]
       }
 
-      reqwest(`http://ec2-54-197-15-18.compute-1.amazonaws.com:8983/solr/gettingstarted/select?wt=json&indent=true&q=${query}`, function (error, response, body) {
+      reqwest(`http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}`, function (error, response, body) {
         if (!error && response.statusCode == 200) {
           body = JSON.parse(body)
           reply(body.response.docs)
