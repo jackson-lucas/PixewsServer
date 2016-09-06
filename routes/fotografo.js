@@ -44,7 +44,7 @@ const getImagens = {
   handler: function (request, reply) {
     if(TokenGenerator.isValid(request.headers.token)) {
       // http://ec2-54-197-15-18.compute-1.amazonaws.com:8983/solr/gettingstarted/select?wt=json&indent=true&q=fotografo_id:12
-      reqwest(`http://ec2-54-197-15-18.compute-1.amazonaws.com:8983/solr/gettingstarted/select?wt=json&indent=true&q=fotografo_id:${request.query.chave}`,
+      reqwest(`http:localhost:8983/solr/gettingstarted/select?wt=json&indent=true&q=fotografo_id:${request.query.chave}`,
       function (error, response, body) {
 
         if (!error && response.statusCode == 200) {
