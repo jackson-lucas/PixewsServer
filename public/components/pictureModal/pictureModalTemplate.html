@@ -1,0 +1,26 @@
+<div class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="thumbnail">
+          <img class="image img-rounded" ng-src="http://pixews.com/image/{{picture.arquivo}}">
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p>Descricão: {{picture.descricao}}</p>
+            <p>Autor: {{picture.userId}}</p>
+            <p>Dimensões: {{picture.height}}x{{picture.width}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-lg">Adicionar ao carrinho
+        </button>
+      </div> -->
+    </div>
+  </div>
+</div>

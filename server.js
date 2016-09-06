@@ -16,18 +16,34 @@ const Hapi = require('hapi')
 const server = new Hapi.Server()
 server.connection({
   host: process.env.HOSTNAME || 'localhost',
-  port: process.env.PORT || 3000,
-  routes: {
-    cors: true
-  }
+  port: process.env.PORT || 3000
 })
 
 server.register(
-    [require('vision'), require('inert'), { register: require('lout') }],
+    [require('vision'), require('inert'), { register: require('lout') }, {
+      register: require('hapi-cors'),
+      options: {
+        origins: ['*'],
+        allowCredentials: 'true',
+        exposeHeaders: ['content-type', 'content-length'],
+        maxAge: 600,
+        methods: ['POST, GET, OPTIONS, PUT, PATCH'],
+        headers: ['Access-Control-Allow-Origin', 'Accept', 'Content-Type', 'token']
+      }
+    }],
     function(err) {
       console.log(err)
 });
 
+server.route({
+  method: 'GET',
+  path: '/{param*}',
+  handler: {
+    directory: {
+      path: 'public/'
+    }
+  }
+});
 
 server.route(fotografo.get)
 server.route(fotografo.getImagens)
@@ -54,7 +70,7 @@ server.route(transacao.put)
 server.route(imagens.get)
 server.route(imagens.getMaisVendidas)
 
-server.route(imagem.get)
+server.route(imagem.post)
 
 server.start((err) => {
 

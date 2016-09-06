@@ -54,7 +54,7 @@ const getImagens = {
     notes: `
     @required atributo token:string em Headers<br>
     @example api.pixews.com/empresa?chave=-KPO80sjVWDUy4ATCZc9<br>
-    @return Id's de Imagens`,
+    @return Array<Id's de Imagens>`,
     validate: {
       headers: Joi.object({
         token: Joi.string().required()
@@ -109,6 +109,9 @@ const post = {
         var token, key
 
         user = snapshot.val()
+        if (!user) {
+          return reply({'erro': 'Usuário não encontrado'})
+        }
         key = Object.keys(user)[0]
         user = user[key]
 
@@ -117,7 +120,7 @@ const post = {
 
           delete user.senha
 
-          reply({'token': token, 'chave': key, 'usuario': user})
+          reply({'token': token, 'chave': key, 'usuario': user, 'limit': request.payload.limit})
         } else {
           reply({'erro': 401 })
         }

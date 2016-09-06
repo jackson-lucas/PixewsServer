@@ -1,0 +1,15 @@
+[
+  {
+    "id" : "1",
+    "tags" : ["olimpiada","futebol","acidente","onibus"],
+    "descricao" : "Foto de um acidente que aconteceu com o ônibus da seleção brasileira de futebol.",
+    "dpi" : 1200,
+    "extensao" : "jpg",
+    "width" : 515,
+    "height" : 314,
+    "fotografo_id" : 12,
+    "data_submissao" : "2016-07-29",
+    "localizacao" : "37.7752,-122.4232",
+    "vendas" : 5
+  }
+]
