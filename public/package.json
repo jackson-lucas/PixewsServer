@@ -1,0 +1,27 @@
+{
+  "name": "pixews-web",
+  "version": "0.6.2",
+  "description": "Marketplace to sell jornalistics pictures",
+  "scripts": {
+    "dev": "http-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackson7am/pixews-web.git"
+  },
+  "author": "Jackson Lima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jackson7am/pixews-web/issues"
+  },
+  "homepage": "https://github.com/jackson7am/pixews-web#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-modal-service": "^0.10.1",
+    "angular-route": "^1.5.8",
+    "angular-touch": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0"
+  }
+}

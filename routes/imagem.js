@@ -5,45 +5,57 @@ var Joi = require('joi')
 var db = require('../utilities/database.js')
 var empresas = db.empresas
 var fotografos = db.fotografos
-var TokenGenerator = require('../utilities/token.js')
+var TokenGenerator = require('../utilities/imageToken.js')
 var reqwest = require('request')
+var JsonFile = require('jsonfile')
 
-const get = {
-  method: 'GET',
+const post = {
+  method: 'POST',
   path: '/imagem',
   handler: function (request, reply) {
-    if(TokenGenerator.isValid(request.headers.token)) {
+    // request.payload.vendas = [0]
+    var info = JSON.parse(request.payload.info)
+    info.id = TokenGenerator.generate()
 
-      reqwest(`http://ec2-54-197-15-18.compute-1.amazonaws.com:8983/solr/gettingstarted/select?wt=json&indent=true&q=id:${request.query.id}`, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-          body = JSON.parse(body)
-          reply(body.response.docs)
-        } else {
-          reply({})
-        }
-      })
-    } else {
-      reply({})
-    }
+    // Create and Store JSON file
+    var file = `private/data/${info.id}.json`
+    JsonFile.writeFile(file, info, function (error) {
+      if (error) {
 
+        console.error('error' + error);
+      } else {
+        console.log('success')
+        // Update Index
+        // cmd.run(`java -jar post.jar ${file}`)
+        cmd.run(`../solr/bin/post -c gettingstarted ${file}`)
+      }
+    })
+
+    // Create File in Private
+    FileSystem.writeFile(`private/imagens/${info.id+'.'+info.extensao}`, request.payload.picture,
+      (error) => {
+        if (error) console.error(error)
+    })
+
+    // TODO: Need watermark first
+    FileSystem.writeFile(`public/imagens/${info.id+'.'+info.extensao}`, request.payload.picture,
+      (error) => {
+        if (error) console.error(error)
+    })
+
+    reply(info.id)
   },
   config: {
-    description: 'Busca de Imagem por Id',
-    notes: `
-    @required atributo token:string em Headers<br>
-    @example api.pixews.com/imagem?id=2<br>
-    @return SolrResponse`,
+    description: 'Criar Imagem',
     validate: {
-      headers: Joi.object({
-        token: Joi.string().required()
-      }).options({ allowUnknown: true }),
-      query: Joi.object({
-        id: Joi.string()
+      payload: Joi.object({
+        info: Joi.string(),
+        picture:  Joi.binary()
       })
     }
   }
 }
 
 module.exports = {
-  'get': get
+  'post': post
 }

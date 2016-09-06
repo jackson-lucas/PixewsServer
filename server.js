@@ -35,6 +35,15 @@ server.register(
       console.log(err)
 });
 
+server.route({
+  method: 'GET',
+  path: '/{param*}',
+  handler: {
+    directory: {
+      path: 'public/'
+    }
+  }
+});
 
 server.route(fotografo.get)
 server.route(fotografo.getImagens)
@@ -61,7 +70,7 @@ server.route(transacao.put)
 server.route(imagens.get)
 server.route(imagens.getMaisVendidas)
 
-server.route(imagem.get)
+server.route(imagem.post)
 
 server.start((err) => {
 

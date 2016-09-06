@@ -1,0 +1,10 @@
+.image {
+  min-width: 100%;
+  min-height: 200px;
+  background:url('../images/ripple.gif') no-repeat center center;
+}
+
+.buy-page-row {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

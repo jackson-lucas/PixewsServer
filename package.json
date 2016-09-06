@@ -3,8 +3,11 @@
   "version": "0.11.3",
   "private": true,
   "scripts": {
-    "start": "forever start server.js",
-    "dev": "nodemon server.js"
+    "start": "PORT=3000 pm2 start server.js -i 2",
+    "stop": "pm2 stop all",
+    "delete": "pm2 delete all",
+    "dev": "nodemon server.js",
+    "create": "node create.js"
   },
   "main": "server.js",
   "dependencies": {
@@ -18,8 +21,10 @@
     "hapi-next": "^0.7.0",
     "inert": "^4.0.1",
     "joi": "^9.0.4",
+    "jsonfile": "^2.3.1",
     "lout": "^9.1.0",
     "request": "^2.74.0",
+    "node-cmd": "^1.1.1",
     "token-generator": "^1.0.0",
     "vision": "^4.1.0"
   },

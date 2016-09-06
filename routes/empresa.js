@@ -120,7 +120,7 @@ const post = {
 
           delete user.senha
 
-          reply({'token': token, 'chave': key, 'usuario': user})
+          reply({'token': token, 'chave': key, 'usuario': user, 'limit': request.payload.limit})
         } else {
           reply({'erro': 401 })
         }

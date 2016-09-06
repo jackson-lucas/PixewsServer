@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ng-href="/#/">Pixews</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="">
+          <a ng-show="!isLogged" ng-href="#/login">Entrar</a>
+        </li>
+        <li>
+          <a ng-show="!isLogged" ng-href="#/cadastrar">Cadastrar</a>
+        </li>
+        <li class="">
+          <a ng-show="isLogged" ng-click="logoff()">Sair</a>
+        </li>
+        <li class="">
+          <a ng-show="isLogged" ng-href="#/perfil">Perfil</a>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="search" ng-model="tags" class="form-control" placeholder="Pesquisar por...">
+        </div>
+        <button type="submit" ng-click="search(tags)" class="btn btn-default">Pesquisar</button>
+      </form>
+      <ul class="nav navbar-right">
+        <li class="">
+          <a ng-show="hasItemsToBuy" ng-href="#/comprar"><img src="./images/shopping-cart.png" /></a>
+        </li>
+        <li class="">
+          <a ng-show="!hasItemsToBuy" ><img src="./images/shopping-cart-2.png" /></a>
+        </li>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

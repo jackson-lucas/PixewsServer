@@ -57,6 +57,7 @@ const put = {
   path: '/transacao',
   handler: function (request, reply) {
 
+    // TODO: Add +1 on picture sold
     Promise.all(
       [addPointsAsync(request, reply), addCompraAsync(request, reply)
     ])
@@ -69,7 +70,7 @@ const put = {
 
   },
   config: {
-    description: 'Registrar Compra - <strong>Em Desenvolvimento</strong>',
+    description: 'Registrar Compra',
     notes: `@return 200 {mensagem: "ok"}<br>
             @return 400 {mensagem: "erro"}`,
     validate: {
