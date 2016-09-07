@@ -5,6 +5,7 @@
 
 'use strict'
 
+require('./env.js')
 const empresa = require('./routes/empresa.js')
 const fotografo = require('./routes/fotografo.js')
 const transacao = require('./routes/transacao.js')
