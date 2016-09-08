@@ -30,7 +30,12 @@ function routes($routeProvider) {
     })
     .when("/perfil", {
       templateUrl: "components/profilePage/profilePageTemplate.html",
-      controller: "profilePageController"
+      controller: "profilePageController",
+      resolve: {
+        user: function (apiService, $window) {
+          return apiService.getUser($window.localStorage.getItem('chave'))
+        }
+      }
     })
 
   // $routeProvider.otherwise({

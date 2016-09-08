@@ -1,6 +1,7 @@
 (function () {
-  function pictureModalController ($scope, $element, picture, close) {
-
+  function pictureModalController ($scope, $element, picture, close, baseApi) {
+    $scope.picture = picture
+    $scope.baseApi = baseApi
     //  This close function doesn't need to use jQuery or bootstrap, because
     //  the button has the 'data-dismiss' attribute.
     $scope.close = function() {

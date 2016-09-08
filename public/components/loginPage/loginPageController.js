@@ -8,7 +8,7 @@ function loginPageController ($scope, $window, apiService) {
         console.log('logged')
         console.log(response)
         $window.localStorage.token = response.data.token
-        $window.localStorage.usuario = response.data.usuario
+        // $window.localStorage.usuario = response.data.usuario.id
         $window.localStorage.chave = response.data.chave
       }, function error (response) {
         console.error(response)

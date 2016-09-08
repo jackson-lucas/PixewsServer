@@ -6,7 +6,7 @@ angular.module('pixewsWeb', [
 ]);
 
 angular.module('pixewsWeb').constant('config', {
-  baseApi: 'http://api.pixews.com',
+  baseApi: 'http://ec2-54-208-73-59.compute-1.amazonaws.com',
   // baseApi: 'http://localhost:3000',
   publicToken: "2d7fEicnEirsPE"
 })

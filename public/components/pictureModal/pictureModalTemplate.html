@@ -7,12 +7,13 @@
       </div>
       <div class="modal-body">
         <div class="thumbnail">
-          <img class="image img-rounded" ng-src="http://pixews.com/image/{{picture.arquivo}}">
+          <img class="image img-rounded" ng-src="{{baseApi}}/imagens/{{picture.id}}.{{picture.extensao}}">
         </div>
         <div class="panel panel-default">
           <div class="panel-body">
+            <p>Data: {{picture.data_submissao}}</p>
             <p>Descricão: {{picture.descricao}}</p>
-            <p>Autor: {{picture.userId}}</p>
+            <p>Vendas: {{picture.vendas}}</p>
             <p>Dimensões: {{picture.height}}x{{picture.width}}</p>
           </div>
         </div>

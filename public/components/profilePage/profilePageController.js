@@ -1,9 +1,12 @@
 (function () {
 
 function profilePageController (
-  $scope
+  $scope,
+  user
 ) {
 
+  console.log(user)
+  $scope.user = user.data
 
 }
 

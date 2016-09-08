@@ -2,6 +2,22 @@
 
 function apiService($http, config) {
 
+  function _getUser (id) {
+    var req = {
+      method: 'GET',
+      url: config.baseApi + "/empresa",
+      //query string params
+      params: {
+        'chave': id
+      },
+      paramSerializer: '$httpParamSerializerJQLike',
+      headers: {
+        'token': config.publicToken
+      }
+    };
+    return $http(req);
+  }
+
   function _search (tags) {
     var req = {
       method: 'GET',
@@ -42,6 +58,7 @@ function apiService($http, config) {
   };
 
   return {
+    'getUser': _getUser,
     'search': _search,
     'login': _login,
     'register': _register

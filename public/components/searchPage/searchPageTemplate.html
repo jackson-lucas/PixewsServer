@@ -1,9 +1,9 @@
 <div ng-repeat="(index, picture) in results" class="col s12 m4 l12">
   <div class="col-md-4">
     <div class="thumbnail">
-      <img class="image img-rounded" ng-src="http://pixews.com/image/{{picture.arquivo}}">
+      <img class="image img-rounded" ng-src="{{baseApi}}/imagens/{{picture.id}}.{{picture.extensao}}">
       <div class="caption">
-        <p>{{picture.descricao[0]}}</p>
+        <p>{{picture.descricao}}</p>
         <p>
           <a class="btn btn-primary" ng-click="showPicture(picture)" role="button">Visualizar</a>
           <a class="btn btn-default" ng-click="addItem(index, picture)" role="button">Adicionar ao carrinho</a>

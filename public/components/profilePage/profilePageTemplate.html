@@ -2,15 +2,15 @@
     <form class="ui form">
       <div class="form-group">
         <label>Nome</label>
-        <input type="text" class="form-control" ng-model="name" placeholder="Nome">
+        <input type="text" class="form-control" ng-model="name" placeholder="Nome" ng-value="user.nome">
       </div>
       <div class="form-group">
         <label>CNPJ</label>
-        <input type="text" class="form-control" ng-model="cnpj" placeholder="CNPJ">
+        <input type="text" class="form-control" ng-model="cnpj" placeholder="CNPJ" ng-value="user.cnpj">
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" class="form-control" ng-model="email" placeholder="Email">
+        <input type="email" class="form-control" ng-model="email" placeholder="Email" ng-value="user.email">
       </div>
       <div class="form-group">
         <label>Senha</label>
@@ -30,6 +30,6 @@
           </ul>
         </div>
       </div> -->
-      <button class="btn btn-default" ng-click="register()" type="submit">Criar</button>
+      <button class="btn btn-default" ng-click="updateProfile()" type="submit">Atualizar</button>
     </form>
 </div>

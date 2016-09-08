@@ -6,9 +6,11 @@ function searchPageController (
   results,
   ModalService,
   $window,
-  shoppingCartService
+  shoppingCartService,
+  config
 ) {
 
+  $scope.baseApi = config.baseApi
   console.log('Search Page')
   console.log(results)
 
@@ -25,7 +27,8 @@ function searchPageController (
       controller: "pictureModalController",
       inputs: {
         title: "A More Complex Example",
-        picture: picture
+        picture: picture,
+        baseApi: config.baseApi
       }
     }).then(function(modal) {
       modal.element.modal();

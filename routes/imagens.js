@@ -7,6 +7,7 @@ var empresas = db.empresas
 var fotografos = db.fotografos
 var TokenGenerator = require('../utilities/token.js')
 var reqwest = require('request')
+var debug = require('debug')('pixews:route:imagens')
 
 const get = {
   method: 'GET',
@@ -15,6 +16,11 @@ const get = {
     if(TokenGenerator.isValid(request.headers.token)) {
       var query = ''
       var parameters = request.query.tags.split(' ')
+      var lat = request.query.lat
+      var lon = request.query.lon
+      debug('position')
+      debug(lat)
+      debug(lon)
 
       query = '%2B' + parameters[0]
 
@@ -23,11 +29,12 @@ const get = {
         query += '+%2B' + parameters[index]
       }
 
-      reqwest(`http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}`, function (error, response, body) {
+      reqwest(`http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}&fq={!geofilt%20sfield=localizacao}&pt=${lat},${lon}&d=1000`, function (error, response, body) {
         if (!error && response.statusCode == 200) {
           body = JSON.parse(body)
           reply(body.response.docs)
         } else {
+          debug(error)
           reply({})
         }
       })
@@ -47,7 +54,9 @@ const get = {
         token: Joi.string().required()
       }).options({ allowUnknown: true }),
       query: Joi.object({
-        tags: Joi.string()
+        tags: Joi.string(),
+        lat: Joi.string().optional(),
+        lon: Joi.string().optional()
       })
     }
   }
@@ -68,7 +77,7 @@ const getMaisVendidas = {
         query += '+%2B' + parameters[index]
       }
 
-      reqwest(`http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}`, function (error, response, body) {
+      reqwest(`http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}&sort=vendas+desc`, function (error, response, body) {
         if (!error && response.statusCode == 200) {
           body = JSON.parse(body)
           reply(body.response.docs)
