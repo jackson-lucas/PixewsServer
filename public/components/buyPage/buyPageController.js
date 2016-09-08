@@ -5,9 +5,11 @@ function buyPageController (
   $location,
   $window,
   ModalService,
-  shoppingCartService
+  shoppingCartService,
+  config
 ) {
 
+  $scope.baseApi = config.baseApi
   $scope.items = shoppingCartService.get()
 
   console.log($scope.items);
@@ -44,7 +46,8 @@ function buyPageController (
       controller: "pictureModalController",
       inputs: {
         title: "A More Complex Example",
-        picture: picture
+        picture: picture,
+        baseApi: config.baseApi
       }
     }).then(function(modal) {
       modal.element.modal();
