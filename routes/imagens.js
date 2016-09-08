@@ -29,7 +29,14 @@ const get = {
         query += '+%2B' + parameters[index]
       }
 
-      reqwest(`http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}&fq={!geofilt%20sfield=localizacao}&pt=${lat},${lon}&d=1000`, function (error, response, body) {
+      var link;
+      if (lat && lon) {
+         link = `http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}&fq={!geofilt%20sfield=localizacao}&pt=${lat},${lon}&d=1000`
+      } else {
+        link = `http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}`
+      }
+
+      reqwest(link, function (error, response, body) {
         if (!error && response.statusCode == 200) {
           body = JSON.parse(body)
           reply(body.response.docs)

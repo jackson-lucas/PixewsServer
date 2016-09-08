@@ -14,7 +14,8 @@ function searchPageController (
   console.log('Search Page')
   console.log(results)
 
-  $scope.results = results.data.filter(shoppingCartService.isNotInShoppingCart)
+  // $scope.results = results.data.filter(shoppingCartService.isNotInShoppingCart)
+  $scope.results = results.data
 
   $scope.addItem = function (index, picture) {
     $scope.results.splice(index, 1)
