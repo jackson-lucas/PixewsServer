@@ -60,6 +60,42 @@ const post = {
   }
 }
 
+const get = {
+  method: 'GET',
+  path: '/imagem/extensao',
+  handler: function (request, reply) {
+    // request.payload.vendas = [0]
+    if(TokenGenerator.isValid(request.headers.token)) {
+      reqwest(`http:localhost:8983/solr/pixews/select?wt=json&indent=true&q=id:${request.query.id}`, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          body = JSON.parse(body)
+          if (body.response) {
+            reply(body.response.docs)
+          } else {
+            reply(body)
+          }
+        } else {
+          reply({})
+        }
+      })
+    }
+
+
+  },
+  config: {
+    description: 'Retornar Extensão da Imagem por Id',
+    validate: {
+      headers: Joi.object({
+        token: Joi.string().required()
+      }).options({ allowUnknown: true }),
+      query: Joi.object({
+        id: Joi.string()
+      })
+    }
+  }
+}
+
 module.exports = {
-  'post': post
+  'post': post,
+  'get': get
 }

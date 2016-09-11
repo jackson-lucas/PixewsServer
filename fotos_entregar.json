@@ -1,0 +1,1735 @@
+[
+  {
+    "id": "2",
+    "extensao": "jpg",
+    "tags": [
+      "política",
+      "tchauquerida",
+      "dilma"
+    ],
+    "descricao": [
+      "Dilma é afastada da presidência da república."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      640
+    ],
+    "height": [
+      426
+    ],
+    "fotografo_id": [
+      "-KPLQFyeto3QWooOPdjr"
+    ],
+    "valor": [
+      75
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      3
+    ]
+  },
+  {
+    "id": "3",
+    "tags": [
+      "tragedia",
+      "tristeza",
+      "bebida"
+    ],
+    "descricao": "Caminhão com carregamento de Coca-Cola cai em barranco e explode",
+    "dpi": 72,
+    "width": 4096,
+    "height": 3072,
+    "extensao": "jpg",
+    "fotografo_id": "-KQZqazpRUuYlr2-OjLK",
+    "data_submissao": "2016-06-23",
+    "localizacao": "38.7752,-122.4232",
+    "vendas": 30
+  },
+  {
+    "id": "4",
+    "tags": [
+      "lazer",
+      "catioro",
+      "amizade"
+    ],
+    "descricao": [
+      "Pastor Alemão ajuda o bebê a dar os primeiros passos."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQZqplk6FnqjyA4jU6I"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      14
+    ]
+  },
+  {
+    "id": "5",
+    "tags": [
+      "informatica",
+      "tecnologia",
+      "amd"
+    ],
+    "descricao": [
+      "Feira de informática local mostra todo o poder nos novos processadores zen da AMD"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQZr4G5Yt-VDmSp7NLB"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      23
+    ]
+  },
+  {
+    "id": "6",
+    "tags": [
+      "beleza",
+      "curso",
+      "gratis"
+    ],
+    "descricao": [
+      "Cabelereira dá curso grátis e ainda contrata os melhoresda turma"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQZrHjtZ_uOtLVWyqc9"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      27
+    ]
+  },
+  {
+    "id": "7",
+    "tags": [
+      "briga",
+      "ferido",
+      "tenso"
+    ],
+    "descricao": [
+      "Dois cidadãos bêbados vão pra briga durante a noite e acabam destruindo todo um bar"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQZrWBFguIesTOBfHaY"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      33
+    ]
+  },
+  {
+    "id": "8",
+    "tags": [
+      "empresa",
+      "oportunidade",
+      "negocio"
+    ],
+    "descricao": [
+      "Vizinho abre empresa de calçados na própria casa."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQZrh3X-ppJPHwt3pwl"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      2
+    ]
+  },
+  {
+    "id": "9",
+    "tags": [
+      "polícia",
+      "roubo",
+      "tenso"
+    ],
+    "descricao": [
+      "Policiais enfrentam e prendem 4 assaltantes armados"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQZrsmREActh3TSBJvJ"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      1
+    ]
+  },
+  {
+    "id": "10",
+    "tags": [
+      "esporte",
+      "chance",
+      "legal"
+    ],
+    "descricao": [
+      "Jovem recebe convite para se tornar atleta após salvar um filhote de animal em correnteza"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQZs3168-tUNeX1bOSx"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      14
+    ]
+  },
+  {
+    "id": "11",
+    "tags": [
+      "noscape",
+      "friendzone",
+      "vida"
+    ],
+    "descricao": [
+      "Cinco amigos tentam pedir cinco amigas em namoro em evento de anime. Continuam amigos"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQZsGcXTW9VbzvBIC96"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      26
+    ]
+  },
+  {
+    "id": "12",
+    "tags": [
+      "política",
+      "tchauquerida",
+      "dilma"
+    ],
+    "descricao": [
+      "Após assumir presidência, Cunha propõe que a moeda do país passe de 'reais' para 'temers'"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_4kUzJw3X6nyIKKOu"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      42
+    ]
+  },
+  {
+    "id": "13",
+    "tags": [
+      "natureza",
+      "surpresa",
+      "perigoso"
+    ],
+    "descricao": [
+      "jacaré é encontrado dentro de piscina de apartamento."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_4wmDgnI1JpvbgG4I"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      23
+    ]
+  },
+  {
+    "id": "14",
+    "tags": [
+      "coragem",
+      "sucesso",
+      "justica"
+    ],
+    "descricao": [
+      "Idoso cego impede roubo da própria casa por três bandidos armados."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_57Nx8XrYwAaHpzD1"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      4
+    ]
+  },
+  {
+    "id": "15",
+    "tags": [
+      "política",
+      "emprego",
+      "dilma"
+    ],
+    "descricao": [
+      "Dilma busca emprego como professora aqui no bairro onde moro."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_5JK-ugwRFCgibGci"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      1
+    ]
+  },
+  {
+    "id": "16",
+    "tags": [
+      "policia",
+      "droga",
+      "bandido"
+    ],
+    "descricao": [
+      "Polícia descobre ponto de droga em sorveteria perto de uma escola"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_5_8oijOjB-4dkWs8"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      16
+    ]
+  },
+  {
+    "id": "17",
+    "tags": [
+      "esporte",
+      "brasil",
+      "selecao"
+    ],
+    "descricao": [
+      "Time de futebol desembarcando hoje pela manhã aqui na cidade."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_5nvOERd7eQI_4Av_"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      18
+    ]
+  },
+  {
+    "id": "18",
+    "tags": [
+      "musica",
+      "sertanejo",
+      "lindo"
+    ],
+    "descricao": [
+      "Bruno e Marrone se apresentam em evento beneficente"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_6-I3_8MAyXpHkFtH"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      34
+    ]
+  },
+  {
+    "id": "19",
+    "tags": [
+      "marvel",
+      "hot",
+      "evento"
+    ],
+    "descricao": [
+      "Ator do personagem Thor posa para fotos com fãs em evento local."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_6FOEQsth6Bqgz0V1"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      31
+    ]
+  },
+  {
+    "id": "20",
+    "tags": [
+      "empresa",
+      "videogame",
+      "sega"
+    ],
+    "descricao": [
+      "SEGA silenciosamente abre filial nacional e volta a fabricar consoles."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_6T-TdbhTFNRpK02A"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      22
+    ]
+  },
+  {
+    "id": "21",
+    "tags": [
+      "política",
+      "eleicao",
+      "roubo"
+    ],
+    "descricao": [
+      "Candidato tentando andar em ônibus lotado tentando ganhar votos é assaltado."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_6g6YZY4vqbNoX2sC"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      27
+    ]
+  },
+  {
+    "id": "22",
+    "tags": [
+      "engenharia",
+      "invencao",
+      "sol"
+    ],
+    "descricao": [
+      "Aluno de engenharia desempregado usa lixo pra criar gerador de energia solar pra não pagar conta de luz."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_6rmnzknWIZC8jAL-"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      39
+    ]
+  },
+  {
+    "id": "23",
+    "tags": [
+      "natureza",
+      "inesperado",
+      "vento"
+    ],
+    "descricao": [
+      "Mini tornado aparece em praia durante à tarde."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_73Jxt3-7wZSv0S5B"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      40
+    ]
+  },
+  {
+    "id": "24",
+    "tags": [
+      "saude",
+      "animais",
+      "legal"
+    ],
+    "descricao": [
+      "Grupo de veterinários oferecem serviço de castração de animais de estimação numa van própria toda equipada"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_7FCf_BZgLV34tye2"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      3
+    ]
+  },
+  {
+    "id": "25",
+    "tags": [
+      "alimento",
+      "culinaria",
+      "novidade"
+    ],
+    "descricao": [
+      "Primeira feira de comida indiana."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_7TqjMk7AaSSxyXGN"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      12
+    ]
+  },
+  {
+    "id": "26",
+    "tags": [
+      "acidente",
+      "pipa",
+      "cidade"
+    ],
+    "descricao": [
+      "Criança cai em bueiro e fica preso após correr pra tentar pegar uma wild pipa."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_7f90gNv5aiFZLd_i"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      5
+    ]
+  },
+  {
+    "id": "27",
+    "tags": [
+      "cidadania",
+      "direito",
+      "educacao"
+    ],
+    "descricao": [
+      "Juiz aposentado visita escolas públicas pra ensinar a Constituição."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_7slWsulJYsMlyund"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      4
+    ]
+  },
+  {
+    "id": "28",
+    "tags": [
+      "escola",
+      "acidente",
+      "muro"
+    ],
+    "descricao": [
+      "Muro de escola cai com ventos fortes."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_83jXV1eJpaIui6z5"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      1
+    ]
+  },
+  {
+    "id": "29",
+    "tags": [
+      "mma",
+      "esporte",
+      "lutador"
+    ],
+    "descricao": [
+      "Bandido é solto pra poder participar como atleta profissional."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_8GSsLZbhDK2Qdx6I"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      2
+    ]
+  },
+  {
+    "id": "30",
+    "tags": [
+      "raio",
+      "natureza",
+      "carro"
+    ],
+    "descricao": [
+      "Carro pega fogo após ser atingido duas vezes por raio durante tempestade."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_8VNjpqOIYtRBcHHh"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      9
+    ]
+  },
+  {
+    "id": "31",
+    "tags": [
+      "natureza",
+      "surpresa",
+      "pedra"
+    ],
+    "descricao": [
+      "Pela primeira vez, chove granizo na cidade onde raramente chove."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_8fW20KEug0HF6N70"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      8
+    ]
+  },
+  {
+    "id": "32",
+    "tags": [
+      "universidade",
+      "negocio",
+      "ciencia"
+    ],
+    "descricao": [
+      "Aluno de Computação larga faculdade pra abrir própria empresa de fisioterapia."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_8rj1Jf5-otPJuMtz"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      7
+    ]
+  },
+  {
+    "id": "33",
+    "tags": [
+      "acidente",
+      "altura",
+      "obra"
+    ],
+    "descricao": [
+      "Funcinário de construção cai de quatro metros sem sofrer ferimentos."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_93wdET9aMrZ2ySyH"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      13
+    ]
+  },
+  {
+    "id": "34",
+    "tags": [
+      "crianca",
+      "amizade",
+      "bonito"
+    ],
+    "descricao": [
+      "Cinco crianças fazem torre humana para tentar tirar gato de árvore"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_9FIXCaDyrF2FJ34L"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      9
+    ]
+  },
+  {
+    "id": "35",
+    "tags": [
+      "extravagante",
+      "saude",
+      "determinacao"
+    ],
+    "descricao": [
+      "Após ter pedido de casamento rejeitado, homem decide viajar sem rumo apenas correndo"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_9R3rsCIGG4Y-9Sdr"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      12
+    ]
+  },
+  {
+    "id": "36",
+    "tags": [
+      "animal",
+      "quemdiria",
+      "desaparecido"
+    ],
+    "descricao": [
+      "Gato desaparecido por 6 anos volta como se nada tivesse acontecido."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_9caQI8vqEcMGVMxo"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      21
+    ]
+  },
+  {
+    "id": "37",
+    "tags": [
+      "shopping",
+      "acidente",
+      "chuva"
+    ],
+    "descricao": [
+      "Chuva forte faz teto de shopping cair em cima de clientes deixando feridos."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_9pCKo-hjSBBA1hDT"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      11
+    ]
+  },
+  {
+    "id": "38",
+    "tags": [
+      "alien",
+      "amizade",
+      "naoestamossos"
+    ],
+    "descricao": [
+      "Alien decide morar na terra após ficar amigo de jovem jogando video games."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_A-dhMJg29md6hamR"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      10
+    ]
+  },
+  {
+    "id": "39",
+    "tags": [
+      "justica",
+      "morte",
+      "bemfeito"
+    ],
+    "descricao": [
+      "Estuprador é pego no ato, então apanha e é castrado na rua pela comunidade enfurecida"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_AAxd0LHNKfUW7a5V"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      20
+    ]
+  },
+  {
+    "id": "40",
+    "tags": [
+      "transito",
+      "moto",
+      "acidente"
+    ],
+    "descricao": [
+      "Moto taxi destrói ferrari em batida no centro da cidade."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_AP11U_rluDFkU3eI"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      7
+    ]
+  },
+  {
+    "id": "41",
+    "tags": [
+      "local",
+      "medo",
+      "acaso"
+    ],
+    "descricao": [
+      "Morador descobre antigo cemitério embaixo da casa onde mora a vários anos."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_Aalhj22Qvhc8CigB"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      0
+    ]
+  },
+  {
+    "id": "42",
+    "tags": [
+      "tecnologia",
+      "duasrodas",
+      "ecologia"
+    ],
+    "descricao": [
+      "Prefeito declara uso obrigátório de bicicletas pela população da cidade para tentar minimizar poluição."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_Apfrosfuci8ncq0j"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      9
+    ]
+  },
+  {
+    "id": "43",
+    "tags": [
+      "legal",
+      "cosplay",
+      "evento"
+    ],
+    "descricao": [
+      "Senhor de 60 anos decide criar o próprio traje do Batman para participar de evento do neto."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_B4WzLXCJieaBLzpE"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      8
+    ]
+  },
+  {
+    "id": "44",
+    "tags": [
+      "culinaria",
+      "oportunidade",
+      "economia"
+    ],
+    "descricao": [
+      "Empresário abre restaurante com receitas da avó."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_BFgXRlpBwMHIrgxU"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      2
+    ]
+  },
+  {
+    "id": "45",
+    "tags": [
+      "esporte",
+      "praca",
+      "saude"
+    ],
+    "descricao": [
+      "Inaugurada primeira praca com máquinas de musculação gratuita."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_BSzmn3n5H-mFr8zx"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      3
+    ]
+  },
+  {
+    "id": "46",
+    "tags": [
+      "luz",
+      "ladrao",
+      "arrastao"
+    ],
+    "descricao": [
+      "Durante falta de luz em universidade, cinco pessoas fazem arrastao relâmpago em parada de ônibus."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_Be3aQozAjyYWfI2B"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      6
+    ]
+  },
+  {
+    "id": "47",
+    "tags": [
+      "saude",
+      "romance",
+      "finalfeliz"
+    ],
+    "descricao": [
+      "Paciente acorda de coma após dois anos. Faz pedido de casamento à enfermeira que cuidou dele durante esse tempo e ela aceita"
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_BqC53QkL7fMdUeK4"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      5
+    ]
+  },
+  {
+    "id": "48",
+    "tags": [
+      "enxame",
+      "acontece",
+      "bemfeito"
+    ],
+    "descricao": [
+      "Enxame de abelhas atacam e impedem assaltantes em casa de idosos."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_C2uJv6yYcuPd_fZd"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      0
+    ]
+  },
+  {
+    "id": "49",
+    "tags": [
+      "educacao",
+      "sociedade",
+      "injustica"
+    ],
+    "descricao": [
+      "Aluno tem entrada barrada em colégio por ir usando kilt."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_CHcHfDvTYv01JIQC"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      4
+    ]
+  },
+  {
+    "id": "50",
+    "tags": [
+      "policial",
+      "hacker",
+      "preso"
+    ],
+    "descricao": [
+      "jovem que sabotava sites da própria universidade é descoberto e preso pela polícia federal."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_CSjMhW_IWgQ-7LPS"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      3
+    ]
+  },
+  {
+    "id": "51",
+    "tags": [
+      "natureza",
+      "beleza",
+      "incrivel"
+    ],
+    "descricao": [
+      "Homem transforma local abandonado em paraíso para animais silvestres."
+    ],
+    "dpi": [
+      72
+    ],
+    "width": [
+      4096
+    ],
+    "height": [
+      3072
+    ],
+    "fotografo_id": [
+      "-KQ_CdJje4B7r9b36rUI"
+    ],
+    "valor": [
+      30
+    ],
+    "data_submissao": [
+      "23/06/2016"
+    ],
+    "localizacao": [
+      "38.7752,-122.4232"
+    ],
+    "vendas": [
+      2
+    ]
+  }
+]

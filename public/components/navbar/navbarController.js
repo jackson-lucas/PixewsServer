@@ -40,6 +40,13 @@ function navbarController (
     // .replace('\s', '+')
   }
 
+  $scope.checkLogin = function checkLogin(keyCode, tags) {
+    // 'Enter' key code
+    if (keyCode == 13) {
+      $scope.search(tags);
+    }
+  }
+
   $scope.logoff = function () {
     delete $window.localStorage.chave
     delete $window.localStorage.token
