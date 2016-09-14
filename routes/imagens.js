@@ -84,7 +84,10 @@ const getMaisVendidas = {
         query += '+%2B' + parameters[index]
       }
 
-      reqwest(`http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}&sort=vendas+desc`, function (error, response, body) {
+      debug('request.query')
+      debug(request.query)
+
+      reqwest(`http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}&fq={!geofilt%20sfield=localizacao}&pt=${request.query.lat},${request.query.lon}&d=1000&sort=vendas+desc`, function (error, response, body) {
         if (!error && response.statusCode == 200) {
           body = JSON.parse(body)
           reply(body.response.docs)
@@ -108,7 +111,9 @@ const getMaisVendidas = {
         token: Joi.string().required()
       }).options({ allowUnknown: true }),
       query: Joi.object({
-        tags: Joi.string()
+        tags: Joi.string(),
+        lat: Joi.string().optional(),
+        lon: Joi.string().optional()
       })
     }
   }
