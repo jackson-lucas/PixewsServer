@@ -57,7 +57,7 @@ const post = {
         }
     })
 
-    reply(info.id)
+    reply({'id': info.id})
   },
   config: {
     description: 'Criar Imagem',
