@@ -7,6 +7,7 @@ var empresas = db.empresas
 var fotografos = db.fotografos
 var TokenGenerator = require('../utilities/token.js')
 var reqwest = require('request')
+var debug = require('debug')('pixews:route:fotografo')
 
 const get = {
   method: 'GET',
@@ -121,7 +122,7 @@ const post = {
       .equalTo(request.payload.email).limitToFirst(1)
       .on('value', function (snapshot) {
         var token, key
-
+        debug('fotografo login')
         user = snapshot.val()
 
         if (!user) {

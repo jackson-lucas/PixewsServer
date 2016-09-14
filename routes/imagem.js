@@ -18,9 +18,12 @@ const post = {
     // request.payload.vendas = [0]
     var info = JSON.parse(request.payload.info)
     info.id = TokenGenerator.generate()
+
+    debug('file')
+    debug(request.payload.picture)
     debug('info.extensao')
     debug(info)
-    debug(info['extensao'])
+
     // Create and Store JSON file
     var file = `private/data/${info.id}.json`
     JsonFile.writeFile(file, info, function (error) {
@@ -40,7 +43,7 @@ const post = {
     FileSystem.writeFile(`private/imagens/${info.id+'.'+info.extensao}`, request.payload.picture,
       (error) => {
         if (error) {
-          console.error(error)
+          debug(error)
           reply(error)
         }
     })
@@ -49,7 +52,7 @@ const post = {
     FileSystem.writeFile(`public/imagens/${info.id+'.'+info.extensao}`, request.payload.picture,
       (error) => {
         if (error) {
-          console.error(error)
+          debug(error)
           reply(new Error('Token not valid!'))
         }
     })
