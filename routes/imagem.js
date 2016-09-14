@@ -26,7 +26,7 @@ const post = {
     JsonFile.writeFile(file, info, function (error) {
       if (error) {
 
-        debug('error' + error);
+        debug('error: ' + error);
         reply(error)
       } else {
         debug('success')
