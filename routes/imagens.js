@@ -42,11 +42,11 @@ const get = {
           reply(body.response.docs)
         } else {
           debug(error)
-          reply({})
+          reply(error)
         }
       })
     } else {
-      reply({})
+      reply(new Error('Token not valid!'))
     }
 
   },
@@ -54,7 +54,7 @@ const get = {
     description: 'Busca de Imagens por Tags',
     notes: `
     @required atributo token:string em Headers<br>
-    @example api.pixews.com/imagens?tags=olimpiada+futebol<br>
+    @example /imagens?tags=olimpiada+futebol<br>
     @return SolrResponse`,
     validate: {
       headers: Joi.object({
@@ -89,20 +89,19 @@ const getMaisVendidas = {
           body = JSON.parse(body)
           reply(body.response.docs)
         } else {
-          reply({})
+          reply(new Error('Request Error'))
         }
       })
     } else {
-      reply({})
+      reply(new Error('Token not valid!'))
     }
 
   },
   config: {
     description: 'Busca as Imagens Mais Vendidas (Melhores Imagens)',
     notes: `
-    <strong>EM DESENVOLVIMENTO</strong><br>
     @required atributo token:string em Headers<br>
-    @example api.pixews.com/imagens?tags=olimpiada+futebol<br>
+    @example /imagens?tags=olimpiada+futebol<br>
     @return SolrResponse`,
     validate: {
       headers: Joi.object({

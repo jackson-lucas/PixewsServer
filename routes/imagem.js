@@ -27,6 +27,7 @@ const post = {
       if (error) {
 
         debug('error' + error);
+        reply(error)
       } else {
         debug('success')
         // Update Index
@@ -38,13 +39,19 @@ const post = {
     // Create File in Private
     FileSystem.writeFile(`private/imagens/${info.id+'.'+info.extensao}`, request.payload.picture,
       (error) => {
-        if (error) console.error(error)
+        if (error) {
+          console.error(error)
+          reply(error)
+        }
     })
 
     // TODO: Need watermark first
     FileSystem.writeFile(`public/imagens/${info.id+'.'+info.extensao}`, request.payload.picture,
       (error) => {
-        if (error) console.error(error)
+        if (error) {
+          console.error(error)
+          reply(new Error('Token not valid!'))
+        }
     })
 
     reply(info.id)
@@ -75,9 +82,11 @@ const get = {
             reply(body)
           }
         } else {
-          reply({})
+          reply(error)
         }
       })
+    } else {
+      reply(new Error('Token not valid!'))
     }
 
 

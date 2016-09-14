@@ -25,7 +25,7 @@ const get = {
     description: 'Retornar Fotografo',
     notes: `
     @required atributo token:string em Headers<br>
-    @example api.pixews.com/fotografo?chave=-KPO80sjVWDUy4ATCZc9<br>
+    @example /fotografo?chave=-KPO80sjVWDUy4ATCZc9<br>
     @return Fotografo`,
     validate: {
       headers: Joi.object({
@@ -56,18 +56,18 @@ const getImagens = {
             reply(body)
           }
         } else {
-          reply({})
+          reply(error)
         }
       })
     } else {
-      reply({})
+      reply(new Error('Token not valid!'))
     }
   },
   config: {
     description: 'Retornar Imagens do Fotografo',
     notes: `
     @required atributo token:string em Headers<br>
-    @example api.pixews.com/fotografo/imagens?chave=12<br>
+    @example /fotografo/imagens?chave=12<br>
     @return Fotografo`,
     validate: {
       headers: Joi.object({
@@ -138,7 +138,7 @@ const post = {
 
           reply({'token': token, 'chave': key, 'usuario': user})
         } else {
-          reply({'erro': 401 })
+          reply(new Error('User credentials not valid!'))
         }
       })
   },
@@ -166,7 +166,7 @@ const patch = {
       fotografos.child(request.payload.chave).update(request.payload.user)
       reply({'mensagem': 'ok'})
     } else {
-      reply({'mensagem': 'token not valid'})
+      reply(new Error('Token not valid!'))
     }
   },
   config: {

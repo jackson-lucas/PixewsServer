@@ -24,7 +24,7 @@ const get = {
     description: 'Retornar Empresa',
     notes: `
     @required atributo token:string em Headers<br>
-    @example api.pixews.com/empresa?chave=-KPO80sjVWDUy4ATCZc9<br>
+    @example /empresa?chave=-KPO80sjVWDUy4ATCZc9<br>
     @return Empresa`,
     validate: {
       headers: Joi.object({
@@ -53,7 +53,7 @@ const getImagens = {
     description: 'Retornar Imagens de uma Empresa',
     notes: `
     @required atributo token:string em Headers<br>
-    @example api.pixews.com/empresa?chave=-KPO80sjVWDUy4ATCZc9<br>
+    @example /empresa?chave=-KPO80sjVWDUy4ATCZc9<br>
     @return Array<Id's de Imagens>`,
     validate: {
       headers: Joi.object({
@@ -110,7 +110,7 @@ const post = {
 
         user = snapshot.val()
         if (!user) {
-          return reply({'erro': 'Usuário não encontrado'})
+          return reply(new Error('User Not Found!'))
         }
         key = Object.keys(user)[0]
         user = user[key]
@@ -122,7 +122,7 @@ const post = {
 
           reply({'token': token, 'chave': key, 'usuario': user, 'limit': request.payload.limit})
         } else {
-          reply({'erro': 401 })
+          reply(new Error('User Credentials Not Valid!'))
         }
       })
   },
@@ -150,7 +150,7 @@ const patch = {
       empresas.child(request.payload.chave).update(request.payload.user)
       reply({'mensagem': 'ok'})
     } else {
-      reply({'mensagem': 'token not valid'})
+      reply(new Error('Token not valid!'))
     }
   },
   config: {

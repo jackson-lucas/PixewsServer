@@ -65,7 +65,7 @@ const put = {
       reply({message:'ok'})
     })
     .catch(error => {
-      reply({message: 'erro'})
+      reply(error)
     })
 
   },
