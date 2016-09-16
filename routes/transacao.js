@@ -6,6 +6,7 @@ var empresas = db.empresas
 var fotografos = db.fotografos
 var TokenGenerator = require('../utilities/token.js')
 var Promise = require('bluebird')
+var Boom = require('boom')
 
 function addPointsAsync(request, reply) {
   return new Promise (function (resolve, reject) {
@@ -65,7 +66,7 @@ const put = {
       reply({message:'ok'})
     })
     .catch(error => {
-      reply(error)
+      reply(Boom.badRequest('Response Not Valid!'))
     })
 
   },

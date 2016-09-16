@@ -8,6 +8,7 @@ var fotografos = db.fotografos
 var TokenGenerator = require('../utilities/token.js')
 var reqwest = require('request')
 var debug = require('debug')('pixews:route:fotografo')
+var Boom = require('boom')
 
 const get = {
   method: 'GET',
@@ -57,11 +58,11 @@ const getImagens = {
             reply(body)
           }
         } else {
-          reply(error)
+          reply(Boom.badRequest('Response Not Valid!'))
         }
       })
     } else {
-      reply(new Error('Token not valid!'))
+      reply(Boom.badRequest('Token Not Valid!'))
     }
   },
   config: {
@@ -139,7 +140,7 @@ const post = {
 
           reply({'token': token, 'chave': key, 'usuario': user})
         } else {
-          reply(new Error('User credentials not valid!'))
+          reply(Boom.badRequest('User Credentials Not Valid!'))
         }
       })
   },
@@ -167,7 +168,7 @@ const patch = {
       fotografos.child(request.payload.chave).update(request.payload.user)
       reply({'mensagem': 'ok'})
     } else {
-      reply(new Error('Token not valid!'))
+      reply(Boom.badRequest('Token Not Valid!'))
     }
   },
   config: {

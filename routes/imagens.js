@@ -8,6 +8,8 @@ var fotografos = db.fotografos
 var TokenGenerator = require('../utilities/token.js')
 var reqwest = require('request')
 var debug = require('debug')('pixews:route:imagens')
+var promise = require('bluebird')
+var Boom = require('boom')
 
 const get = {
   method: 'GET',
@@ -42,11 +44,11 @@ const get = {
           reply(body.response.docs)
         } else {
           debug(error)
-          reply(error)
+          reply(Boom.badRequest('Response Not Valid!'))
         }
       })
     } else {
-      reply(new Error('Token not valid!'))
+      reply(Boom.badRequest('Token not valid!'))
     }
 
   },
@@ -92,11 +94,11 @@ const getMaisVendidas = {
           body = JSON.parse(body)
           reply(body.response.docs)
         } else {
-          reply(new Error('Request Error'))
+          reply(Boom.badRequest('Response Not Valid!'))
         }
       })
     } else {
-      reply(new Error('Token not valid!'))
+      reply(Boom.badRequest('Token Not Valid!'))
     }
 
   },

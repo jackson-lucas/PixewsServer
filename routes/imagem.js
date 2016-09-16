@@ -6,10 +6,12 @@ var db = require('../utilities/database.js')
 var empresas = db.empresas
 var fotografos = db.fotografos
 var TokenGenerator = require('../utilities/imageToken.js')
+var reqwest = require('request')
 var JsonFile = require('jsonfile')
 var cmd = require('node-cmd')
 var FileSystem = require('fs')
 var debug = require('debug')('pixews:route:imagem')
+var Boom = require('boom')
 
 const post = {
   method: 'POST',
@@ -72,6 +74,47 @@ const post = {
 
 const get = {
   method: 'GET',
+  path: '/imagem',
+  handler: function (request, reply) {
+    debug('get imagem')
+    // debug(TokenGenerator.generate())
+
+    if(TokenGenerator.isValid(request.headers.token)) {
+      reqwest(`http:localhost:8983/solr/pixews/select?wt=json&indent=true&q=id:${request.query.id}`, function (error, response, body) {
+        debug(error, response, body)
+        if (!error && response.statusCode == 200) {
+          debug(body)
+          body = JSON.parse(body)
+          if (body.response) {
+            reply(body.response.docs)
+          } else {
+            reply(body)
+          }
+        } else {
+          reply(Boom.badRequest('Response Not Valid!'))
+        }
+      })
+    } else {
+      reply(Boom.badRequest('Token not valid!'))
+    }
+
+
+  },
+  config: {
+    description: 'Retornar Extensão da Imagem por Id',
+    validate: {
+      headers: Joi.object({
+        token: Joi.string().required()
+      }).options({ allowUnknown: true }),
+      query: Joi.object({
+        id: Joi.string()
+      })
+    }
+  }
+}
+
+const getExtension = {
+  method: 'GET',
   path: '/imagem/extensao',
   handler: function (request, reply) {
     // request.payload.vendas = [0]
@@ -85,11 +128,11 @@ const get = {
             reply(body)
           }
         } else {
-          reply(error)
+          reply(Boom.badRequest('Response Not Valid!'))
         }
       })
     } else {
-      reply(new Error('Token not valid!'))
+      reply(Boom.badRequest('Token not valid!'))
     }
 
 
@@ -109,5 +152,6 @@ const get = {
 
 module.exports = {
   'post': post,
-  'get': get
+  'get': get,
+  'getExtension': getExtension
 }

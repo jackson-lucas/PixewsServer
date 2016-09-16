@@ -6,6 +6,7 @@ var db = require('../utilities/database.js')
 var empresas = db.empresas
 var fotografos = db.fotografos
 var TokenGenerator = require('../utilities/token.js')
+var Boom = require('boom')
 
 const get = {
   method: 'GET',
@@ -122,7 +123,7 @@ const post = {
 
           reply({'token': token, 'chave': key, 'usuario': user, 'limit': request.payload.limit})
         } else {
-          reply(new Error('User Credentials Not Valid!'))
+          reply(Boom.badRequest('User Credentials Not Valid!'))
         }
       })
   },
@@ -150,7 +151,7 @@ const patch = {
       empresas.child(request.payload.chave).update(request.payload.user)
       reply({'mensagem': 'ok'})
     } else {
-      reply(new Error('Token not valid!'))
+      reply(Boom.badRequest('Token Not Valid!'))
     }
   },
   config: {
