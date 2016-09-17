@@ -6,13 +6,20 @@ var empresas = db.empresas
 var fotografos = db.fotografos
 var TokenGenerator = require('../utilities/token.js')
 var Promise = require('bluebird')
+var reqwest = Promise.promisify(require('request'))
 var Boom = require('boom')
+var debug = require('debug')('pixews:route:transacao')
+var jsonfile = require('jsonfile')
+
+// function getFotografoIdByImage (request, reply) {
+//   return reqwest(`http:localhost:8983/solr/pixews/select?wt=json&indent=true&q=id:${request.query.foto_chave}`).then(function () {
+//
+//   })
+// }
 
 function addPointsAsync(request, reply) {
   return new Promise (function (resolve, reject) {
-
     var pontos = db.source.ref(`/fotografos/${request.payload.fotografo_chave}/pontos`)
-
     pontos.transaction(
       function (currentValue) {
         return (currentValue || 0) + 30
@@ -53,14 +60,32 @@ function addCompraAsync(request, reply) {
   })
 }
 
+function addVenda (fotoId) {
+
+  return new Promise (function (resolve, reject) {
+    var file = `private/data/${fotoId}.json`
+    jsonfile.readFile(file, function(err, obj) {
+      if (err) debug(err)
+      obj["vendas"] = obj["vendas"] + 1
+      jsonfile.writeFile(file, obj, (error) => {
+        if (error) {
+          debug(error)
+          reject(error)
+        }
+        debug('success updating')
+        resolve()
+      })
+    })
+  })
+}
+
 const put = {
   method: 'PUT',
   path: '/transacao',
   handler: function (request, reply) {
 
-    // TODO: Add +1 on picture sold
     Promise.all(
-      [addPointsAsync(request, reply), addCompraAsync(request, reply)
+      [addCompraAsync(request, reply), addVenda(request.payload.foto_chave)
     ])
     .then(() => {
       reply({message:'ok'})
@@ -80,11 +105,9 @@ const put = {
       }).options({ allowUnknown: true }),
       payload: Joi.object({
         foto_chave: Joi.string(),
-        fotografo_chave: Joi.string(),
         empresa_chave: Joi.string()
       }).example({
           "foto_chave": "12",
-          "fotografo_chave": "-KPLQFyeto3QWooOPdjr",
           "empresa_chave": "-VILWFyeto3QWooORdjr"
       })
     }
