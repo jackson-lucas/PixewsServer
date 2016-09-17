@@ -62,7 +62,10 @@ function apiService($http, config) {
       method: 'PUT',
       url: config.baseApi + "/transacao",
       paramSerializer: '$httpParamSerializerJQLike',
-      data: form
+      data: form,
+      headers: {
+        'token': config.publicToken
+      }
     };
     return $http(req);
   };

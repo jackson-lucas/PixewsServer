@@ -40,7 +40,8 @@ function shoppingCartService($window) {
   }
 
   function remove (pictureId) {
-    _shoppingCart.splice(pictureId, 1)
+    var index = _shoppingCart.indexOf(pictureId)
+    _shoppingCart.splice(index, 1)
     $window.localStorage.shoppingCart = _shoppingCart
 
     publish()
