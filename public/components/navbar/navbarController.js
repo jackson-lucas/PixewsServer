@@ -5,14 +5,15 @@ function navbarController (
   $location,
   apiService,
   $window,
-  shoppingCartService
+  shoppingCartService,
+  loginService
 ) {
 
-  $scope.isLogged = !!$window.localStorage.getItem('chave')
+  $scope.login = loginService.get()
 
   var shoppingCart = shoppingCartService.get()
 
-  $scope.hasItemsToBuy = !!shoppingCart.length
+  $scope.hasItemsToBuy = shoppingCartService.hasItems()
 
   function subscription (_shoppingCart) {
     shoppingCart = _shoppingCart
@@ -40,7 +41,7 @@ function navbarController (
     // .replace('\s', '+')
   }
 
-  $scope.checkLogin = function checkLogin(keyCode, tags) {
+  $scope.checkSearch = function checkSearch(keyCode, tags) {
     // 'Enter' key code
     if (keyCode == 13) {
       $scope.search(tags);
@@ -48,11 +49,9 @@ function navbarController (
   }
 
   $scope.logoff = function () {
-    delete $window.localStorage.chave
-    delete $window.localStorage.token
-    delete $window.localStorage.usuario
     delete $window.localStorage.shoppingCart
     $scope.isLogged = false;
+    loginService.logoff()
   }
 }
 

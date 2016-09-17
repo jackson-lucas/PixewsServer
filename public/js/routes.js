@@ -37,6 +37,15 @@ function routes($routeProvider) {
         }
       }
     })
+    .when("/minhas-compras", {
+      templateUrl: "components/myPicturesPage/myPicturesPageTemplate.html",
+      controller: "myPicturesPageController",
+      resolve: {
+        results: function (apiService, $window) {
+          return apiService.getMyPictures($window.localStorage.getItem('chave'))
+        }
+      }
+    })
 
   // $routeProvider.otherwise({
   //   redirectTo: "/"

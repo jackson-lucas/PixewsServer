@@ -1,12 +1,12 @@
-<div class="ui container">
+<div class="ui container login-page">
     <form class="ui form">
       <div class="form-group">
         <label>Email</label>
-        <input type="email" class="form-control" ng-model="email" placeholder="Email">
+        <input type="text" class="form-control" ng-model="email" placeholder="Email" maxlength="32" size="32">
       </div>
       <div class="form-group">
         <label>Senha</label>
-        <input type="password" class="form-control" ng-model="senha" placeholder="Senha">
+        <input type="password" class="form-control" ng-model="senha" placeholder="Senha" maxlength="16" size="16">
       </div>
       <button class="btn btn-default" ng-click="login(email, senha)" type="submit">Login</button>
     </form>

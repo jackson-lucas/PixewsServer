@@ -19,22 +19,24 @@ function searchPageController (
 
   $scope.addItem = function (index, picture) {
     $scope.results.splice(index, 1)
-    shoppingCartService.add(picture)
+    shoppingCartService.add(picture.id)
   }
 
-  $scope.showPicture = function (picture) {
+  $scope.showPicture = function (index, picture) {
     ModalService.showModal({
       templateUrl: "components/pictureModal/pictureModalTemplate.html",
       controller: "pictureModalController",
       inputs: {
-        title: "A More Complex Example",
         picture: picture,
+        index: index,
         baseApi: config.baseApi
       }
     }).then(function(modal) {
       modal.element.modal();
       modal.close.then(function(result) {
-        $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+        if (result.buyPicture) {
+          $scope.addItem(result.index, result.picture)
+        }
       });
     })
   }

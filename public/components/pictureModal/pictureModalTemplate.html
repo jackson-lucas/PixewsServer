@@ -11,17 +11,17 @@
         </div>
         <div class="panel panel-default">
           <div class="panel-body">
-            <p>Data: {{picture.data_submissao}}</p>
+            <p>Data: {{picture.data_submissao | dateFormatFilter }}</p>
             <p>Descricão: {{picture.descricao}}</p>
             <p>Vendas: {{picture.vendas}}</p>
             <p>Dimensões: {{picture.height}}x{{picture.width}}</p>
           </div>
         </div>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-success btn-lg">Adicionar ao carrinho
+      <div class="modal-footer">
+        <button type="button" ng-click="buy()" data-dismiss="modal" class="btn btn-success btn-lg">Adicionar ao carrinho
         </button>
-      </div> -->
+      </div>
     </div>
   </div>
 </div>

@@ -1,18 +1,12 @@
 <div class="row text-center buy-page-row">
   <button type="button" ng-click="removeAll()" class="btn btn-danger">Cancelar</button>
-  <button type="button" class="btn btn-success">Comprar</button>
+  <button type="button" ng-click="buy()" class="btn btn-success">Comprar</button>
 </div>
-<div ng-repeat="(index, picture) in items" class="col s12 m4 l12">
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <img class="image img-rounded" ng-src="{{baseApi}}/imagens/{{picture.id}}.{{picture.extensao}}">
-      <div class="caption">
-        <p>{{picture.descricao}}</p>
-        <p>
-          <a class="btn btn-primary" ng-click="showPicture(picture)" role="button">Visualizar</a>
-          <a class="btn btn-danger" ng-click="removeItem(index)" role="button">Excluir</a>
-        </p>
-      </div>
-    </div>
+<div ng-repeat="(index, picture) in items" class="col s12 m4 l12 buy-page-mosaic">
+  <div class="col-xs-3 col-md-3">
+    <button type="button" class="close" ng-click="removeItem()" aria-hidden="true">&times;</button>
+    <a class="thumbnail buy-page-thumbnail">
+      <img class="image img-rounded" ng-src="{{baseApi}}/imagens/{{picture}}.jpg">
+    </a>
   </div>
 </div>

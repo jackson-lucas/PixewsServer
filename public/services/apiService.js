@@ -57,11 +57,40 @@ function apiService($http, config) {
     return $http(req);
   };
 
+  function _buy (form) {
+    var req = {
+      method: 'PUT',
+      url: config.baseApi + "/transacao",
+      paramSerializer: '$httpParamSerializerJQLike',
+      data: form
+    };
+    return $http(req);
+  };
+
+
+  function _getMyPictures (enterpriseId) {
+    var req = {
+      method: 'GET',
+      url: config.baseApi + "/empresa/imagens",
+      //query string params
+      params: {
+        'chave': enterpriseId
+      },
+      paramSerializer: '$httpParamSerializerJQLike',
+      headers: {
+        'token': config.publicToken
+      }
+    };
+    return $http(req);
+  }
+
   return {
     'getUser': _getUser,
     'search': _search,
     'login': _login,
-    'register': _register
+    'register': _register,
+    'buy': _buy,
+    'getMyPictures': _getMyPictures
   }
 
 }

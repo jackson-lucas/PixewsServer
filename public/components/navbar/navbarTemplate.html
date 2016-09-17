@@ -8,30 +8,35 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" ng-href="/#/">Pixews</a>
+      <a class="navbar-brand" ng-href="/#/"><img src="images/pixews-logo.png" width="50" height="30" /></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="">
-          <a ng-show="!isLogged" ng-href="#/login">Entrar</a>
+          <a ng-show="!login.isLogged" ng-href="#/login">Entrar</a>
         </li>
         <li>
-          <a ng-show="!isLogged" ng-href="#/cadastrar">Cadastrar</a>
+          <a ng-show="!login.isLogged" ng-href="#/cadastrar">Cadastrar</a>
         </li>
         <li class="">
-          <a ng-show="isLogged" ng-click="logoff()">Sair</a>
+          <a ng-show="login.isLogged" ng-click="logoff()">Sair</a>
         </li>
         <li class="">
-          <a ng-show="isLogged" ng-href="#/perfil">Perfil</a>
+          <a ng-show="login.isLogged" ng-href="#/perfil">Perfil</a>
+        </li>
+        <li class="">
+          <a ng-show="login.isLogged" ng-href="#/minhas-compras">Minhas Compras</a>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="search" ng-model="tags" class="form-control" placeholder="Pesquisar por...">
+      <form class="navbar-form navbar-right">
+        <div class="input-group">
+          <input type="text" ng-keyup="checkSearch($event.keyCode, tags)" ng-model="tags" class="form-control" placeholder="Pesquisar">
+          <span class="input-group-btn">
+            <button ng-click="search(tags)" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </span>
         </div>
-        <button type="submit" ng-click="search(tags)" class="btn btn-default">Pesquisar</button>
       </form>
       <ul class="nav navbar-right">
         <li class="">

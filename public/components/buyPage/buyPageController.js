@@ -31,13 +31,16 @@ function buyPageController (
     var isLogged = !!$window.localStorage.getItem('chave')
 
     if (isLogged) {
-      // do transaction
+      // request data
+      // $scope.items.every(function (item) {
+      //
+      // })
     } else {
       $location.path('login')
     }
   }
 
-  $scope.showPicture = function (picture) {
+  $scope.showPicture = function (index, picture) {
     console.log('showing picture')
     console.log(picture)
 
@@ -45,14 +48,14 @@ function buyPageController (
       templateUrl: "components/pictureModal/pictureModalTemplate.html",
       controller: "pictureModalController",
       inputs: {
-        title: "A More Complex Example",
         picture: picture,
+        index: index,
         baseApi: config.baseApi
       }
     }).then(function(modal) {
       modal.element.modal();
       modal.close.then(function(result) {
-        $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+
       });
     })
   }

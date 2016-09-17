@@ -1,5 +1,12 @@
 <div class="jumbotron">
-  <h1>Pixews</h1>
-  <p>As fotos para suas notícias estão aqui!</p>
-  <input type="search" ng-model="tags" class="form-control" placeholder="Pesquisar por...">
+  <div class="container jumbotron-container">
+    <h1>Pixews</h1>
+    <p class="small">As fotos para suas notícias estão aqui!</p>
+    <div class="input-group home-input-group">
+      <input tabindex="1" type="text" ng-model="tags" ng-keyup="checkSearch($event.keyCode, tags)" class="form-control" placeholder="Pesquisar">
+      <span class="input-group-btn">
+        <button ng-click="search(tags)" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      </span>
+    </div>
+  </div>
 </div>

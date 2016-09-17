@@ -1,7 +1,44 @@
+* {
+  font-family: 'News Cycle', sans-serif;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
 .image {
   min-width: 100%;
-  min-height: 200px;
+  min-height: 50px;
   background:url('../images/ripple.gif') no-repeat center center;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.profile-page, .login-page, .register-page {
+  padding-top: 5rem;
+}
+
+.search-page, .buy-page-mosaic {
+  padding-top: 5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.jumbotron {
+  padding-top: 15rem;
+  background:url('../images/jumbotron-bg.jpg') no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+
+.jumbotron-container {
+  padding: 5rem;
+}
+
+.home-input-group > *, .home-input-group .btn {
+  height: 60px;
 }
 
 .buy-page-row {
