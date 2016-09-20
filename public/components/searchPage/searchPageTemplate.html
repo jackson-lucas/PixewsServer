@@ -1,7 +1,7 @@
-<div ng-repeat="(index, picture) in results" class="row search-page">
-  <div class="col-xs-3 col-md-3">
+<div class="row search-page">
+  <div class="col-xs-3 col-md-3" ng-repeat="(index, picture) in results">
     <a ng-click="showPicture(index, picture)" class="thumbnail">
-      <img class="image img-rounded" ng-src="{{baseApi}}/imagens/{{picture.id}}.{{picture.extensao}}">
+      <img class="image img-rounded" ng-src="{{baseApi}}/imagens/{{picture.id}}.jpg">
     </a>
   </div>
 </div>
