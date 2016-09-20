@@ -45,6 +45,7 @@ const getImagens = {
   path: '/fotografo/imagens',
   handler: function (request, reply) {
     if(TokenGenerator.isValid(request.headers.token)) {
+      request.query.chave = request.query.chave.replace(/-/g,'\\-') 
       // http://ec2-54-197-15-18.compute-1.amazonaws.com:8983/solr/gettingstarted/select?wt=json&indent=true&q=fotografo_id:12
       reqwest(`http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=fotografo_id:${request.query.chave}`,
       function (error, response, body) {
