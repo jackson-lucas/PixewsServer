@@ -24,6 +24,7 @@ const post = {
     debug('file')
     debug(request.payload.picture)
     debug('info.extensao')
+    info.fotografo_id = info.fotografo_id.replace(/-/g,'')
     debug(info)
 
     // Create and Store JSON file
