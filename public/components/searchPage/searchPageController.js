@@ -14,11 +14,20 @@ function searchPageController (
   console.log('Search Page')
   console.log(results)
 
+  if (!results.data.length) {
+    $.notify({
+      title: '<strong>Busca: </strong>',
+      message: 'Nenhum resultado encontrado!'
+    },{
+      type: 'info'
+    });
+  }
+
   // $scope.results = results.data.filter(shoppingCartService.isNotInShoppingCart)
   $scope.results = results.data
 
   $scope.addItem = function (index, picture) {
-    $scope.results.splice(index, 1)
+    picture.isInCart = true;
     shoppingCartService.add(picture.id)
   }
 

@@ -21,6 +21,10 @@ a:hover {
   cursor: pointer;
 }
 
+.buy-page-price {
+  color: #FFF;
+}
+
 .buy-page-image:hover {
   opacity: 0.5;
 }
@@ -51,6 +55,16 @@ a:hover {
   padding-right: 5rem;
 }
 
+.search-page-cart {
+  position: absolute;
+  top: 1rem;
+  border-style: none;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip:    padding;
+  background-clip:         padding-box;
+}
+
 .jumbotron {
   padding-top: 15rem;
   background:url('../images/jumbotron-bg.jpg') no-repeat;
@@ -68,5 +82,5 @@ a:hover {
 
 .buy-page-row {
   margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0rem;
 }

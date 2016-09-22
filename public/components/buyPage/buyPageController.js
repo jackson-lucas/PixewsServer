@@ -13,6 +13,8 @@ function buyPageController (
   $scope.baseApi = config.baseApi
   $scope.items = shoppingCartService.get()
 
+  $scope.price = 'Total: R$ ' + ($scope.items.length * 30);
+
   console.log($scope.items);
 
   function subscription (shoppingCart) {
@@ -26,7 +28,10 @@ function buyPageController (
     $location.path('/')
   }
 
-  $scope.removeItem = shoppingCartService.remove
+  $scope.removeItem = function (picture) {
+    shoppingCartService.remove(picture)
+    $scope.price = 'Total: R$ ' + ($scope.items.length * 30);
+  }
 
   $scope.buy = function () {
     var isLogged = !!$window.localStorage.getItem('chave')
@@ -41,6 +46,16 @@ function buyPageController (
           console.log(item);
           $scope.items.splice($scope.items.indexOf(item), 1)
           shoppingCartService.remove(item)
+
+          if ($scope.items.length == 0) {
+            $.notify({
+              title: '<strong>Compras: </strong>',
+              message: 'Compras efetuadas com sucesso!'
+            },{
+              type: 'success'
+            });
+            $location.path('minhas-compras')
+          }
 
         }, function (error) {
           console.error(error)

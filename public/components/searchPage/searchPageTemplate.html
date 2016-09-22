@@ -2,6 +2,7 @@
   <div class="col-xs-3 col-md-3" ng-repeat="(index, picture) in results">
     <a ng-click="showPicture(index, picture)" class="thumbnail">
       <img class="image img-rounded" ng-src="{{baseApi}}/imagens/{{picture.id}}.jpg">
+      <img ng-show="picture.isInCart" class="search-page-cart" src="./images/shopping-cart.png" />
     </a>
   </div>
 </div>

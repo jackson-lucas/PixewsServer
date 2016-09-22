@@ -11,10 +11,14 @@ function myPicturesPageController (
 
   console.log(results)
 
-  $scope.results = results.data
+  $scope.results = results.data.filter( function( item, index, inputArray ) {
+    return inputArray.indexOf(item) == index;
+  });
+
+  console.log($scope.results)
 
   $scope.download = function (index, picture) {
-    
+
   }
 }
 

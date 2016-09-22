@@ -1,12 +1,14 @@
 <div class="row text-center buy-page-row">
   <button type="button" ng-click="removeAll()" class="btn btn-danger">Cancelar</button>
   <button type="button" ng-click="buy()" class="btn btn-success">Comprar</button>
+  <h1 class="buy-page-price">{{price}}</h1>
 </div>
-<div ng-repeat="(index, picture) in items" class="col s12 m4 l12 buy-page-mosaic">
-  <div class="col-xs-3 col-md-3">
+<div class="row search-page">
+  <div class="col-xs-3 col-md-3 buy-page-mosaic" ng-repeat="(index, picture) in items">
     <a ng-click="removeItem(picture)" class="thumbnail buy-page-thumbnail">
       <img class="image img-rounded buy-page-image" ng-src="{{baseApi}}/imagens/{{picture}}.jpg">
     </a>
     <a ng-click="removeItem(picture)" class="buy-page-delete-button"><img class="buy-page-delete-image" src="images/x-mark.png" alt=""/></a>
   </div>
+</div>
 </div>

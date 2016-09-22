@@ -1,6 +1,6 @@
 (function () {
 
-  function loginService ($window, apiService, $location) {
+  function loginService ($window, apiService, $location, shoppingCartService) {
 
     var _login = {
       isLogged: $window.localStorage.isLogged,
@@ -59,6 +59,8 @@
       $window.localStorage.isLogged = false
       $window.localStorage.token = ''
       $window.localStorage.chave = ''
+
+      shoppingCartService.removeAll()
 
       _login.isLogged = false
       _login.token = ''
