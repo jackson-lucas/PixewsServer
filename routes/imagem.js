@@ -12,6 +12,7 @@ var cmd = require('node-cmd')
 var FileSystem = require('fs')
 var debug = require('debug')('pixews:route:imagem')
 var Boom = require('boom')
+var watermark = require('image-watermark');
 
 const post = {
   method: 'POST',
@@ -57,7 +58,16 @@ const post = {
         if (error) {
           debug(error)
           reply(new Error('Token not valid!'))
+        } else {
+          watermark.embedWatermark(
+            `public/imagens/${info.id+'.'+info.extensao}`,
+            {
+              'text' : 'Pixews ®',
+              'override-image': 'true'
+            }
+          )
         }
+
     })
 
     reply({'id': info.id})
