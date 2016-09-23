@@ -14,6 +14,21 @@ var debug = require('debug')('pixews:route:imagem')
 var Boom = require('boom')
 var watermark = require('image-watermark');
 
+function watermarkImage(path) {
+  debug('watermarking:'+path)
+  watermark.embedWatermarkWithCb(
+    path,
+    {
+      'text' : 'Pixews ®',
+      'override-image': 'true'
+    },
+    function (error) {
+      if (!error) debug('success watermarking')
+      debug(error)
+    }
+  )
+}
+
 const post = {
   method: 'POST',
   path: '/imagem',
@@ -59,13 +74,7 @@ const post = {
           debug(error)
           reply(new Error('Token not valid!'))
         } else {
-          watermark.embedWatermark(
-            `public/imagens/${info.id+'.'+info.extensao}`,
-            {
-              'text' : 'Pixews ®',
-              'override-image': 'true'
-            }
-          )
+          watermarkImage(`public/imagens/${info.id+'.'+info.extensao}`);
         }
 
     })
