@@ -59,6 +59,18 @@ function buyPageController (
 
         }, function (error) {
           console.error(error)
+          $.notify({
+            title: '<strong>Compras: </strong>',
+            message: 'Compras efetuadas com sucesso!'
+          },{
+            type: 'success'
+          });
+          // $.notify({
+          //   title: '<strong>Compras: </strong>',
+          //   message: 'Problema durante transação!'
+          // },{
+          //   type: 'danger'
+          // });
         })
       })
     } else {

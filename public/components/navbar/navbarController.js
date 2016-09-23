@@ -10,7 +10,8 @@ function navbarController (
 ) {
 
   $scope.login = loginService.get()
-
+  $scope.login.isLogged = $scope.login.isLogged == 'false' ? false : true
+  console.log($scope.login);
   var shoppingCart = shoppingCartService.get()
 
   $scope.hasItemsToBuy = shoppingCartService.hasItems()

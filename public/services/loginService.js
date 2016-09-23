@@ -30,7 +30,7 @@
 
     function login (email, senha) {
       apiService.login(email, senha)
-        .then(function success (response) {
+        .then(function (response) {
           console.log('logged')
           console.log(response)
 
@@ -44,8 +44,9 @@
 
           _publish()
           $location.path('/')
-        }, function error (response) {
+        }, function (response) {
           console.error(response);
+
           $.notify({
             title: '<strong>Aviso!</strong>',
             message: 'Falha ao Logar.'
