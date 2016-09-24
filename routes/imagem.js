@@ -34,7 +34,7 @@ const postImagem = {
   path: '/imagem',
   handler: function (request, reply) {
     debug('post imagem')
-    debug(request.payload.info)
+    debug(request.payload.description)
     // debug(JSON.parse(request.payload.info))
     // var info = JSON.parse(request.payload.info)
     // info.id = TokenGenerator.generate()
@@ -100,7 +100,7 @@ const post = {
   path: '/upload',
   handler: function (request, reply) {
     debug('post upload')
-    debug(request.payload.info)
+    debug(request.payload.description)
     // debug(JSON.parse(request.payload.info))
     // var info = JSON.parse(request.payload.info)
     // info.id = TokenGenerator.generate()
