@@ -35,6 +35,7 @@ const post = {
   handler: function (request, reply) {
     debug('file')
     debug(request.payload.info)
+    debug(JSON.parse(request.payload.info))
     var info = JSON.parse(request.payload.info)
     info.id = TokenGenerator.generate()
 
