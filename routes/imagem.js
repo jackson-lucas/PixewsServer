@@ -33,11 +33,11 @@ const post = {
   method: 'POST',
   path: '/imagem',
   handler: function (request, reply) {
-    // request.payload.vendas = [0]
+    debug('file')
+    debug(request.payload.info)
     var info = JSON.parse(request.payload.info)
     info.id = TokenGenerator.generate()
 
-    debug('file')
     // debug(request.payload.picture)
     debug('info.extensao')
     info.fotografo_id = info.fotografo_id.replace(/-/g,'')
