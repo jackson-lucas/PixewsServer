@@ -31,9 +31,9 @@ function watermarkImage(path) {
 
 const post = {
   method: 'POST',
-  path: '/imagem',
+  path: '/upload',
   handler: function (request, reply) {
-    debug('post imagem')
+    debug('post upload')
     debug(request.payload.info)
     // debug(JSON.parse(request.payload.info))
     // var info = JSON.parse(request.payload.info)
@@ -87,7 +87,7 @@ const post = {
     description: 'Criar Imagem',
     validate: {
       payload: Joi.object({
-        info: Joi.string(),
+        description: Joi.string(),
         picture: Joi.binary()
       })
     }
