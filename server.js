@@ -71,6 +71,7 @@ server.route(transacao.put)
 server.route(imagens.get)
 server.route(imagens.getMaisVendidas)
 
+server.route(imagem.postImagem)
 server.route(imagem.post)
 server.route(imagem.get)
 server.route(imagem.getExtension)

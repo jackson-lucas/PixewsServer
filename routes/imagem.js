@@ -29,6 +29,72 @@ function watermarkImage(path) {
   )
 }
 
+const postImagem = {
+  method: 'POST',
+  path: '/imagem',
+  handler: function (request, reply) {
+    debug('post imagem')
+    debug(request.payload.info)
+    // debug(JSON.parse(request.payload.info))
+    // var info = JSON.parse(request.payload.info)
+    // info.id = TokenGenerator.generate()
+
+    // debug(request.payload.picture)
+    // debug('info.extensao')
+    // info.fotografo_id = info.fotografo_id.replace(/-/g,'')
+    // debug(info)
+    //
+    // // Create and Store JSON file
+    // var file = `private/data/${info.id}.json`
+    // JsonFile.writeFile(file, info, function (error) {
+    //   if (error) {
+    //
+    //     debug('error: ' + error);
+    //     reply(error)
+    //   } else {
+    //     debug('success')
+    //     // Update Index
+    //     // cmd.run(`java -jar post.jar ${file}`)
+    //     cmd.run(`../solr/bin/post -c pixews ${file}`)
+    //   }
+    // })
+    //
+    // // Create File in Private
+    // FileSystem.writeFile(`private/imagens/${info.id+'.'+info.extensao}`, request.payload.picture,
+    //   (error) => {
+    //     if (error) {
+    //       debug(error)
+    //       reply(error)
+    //     }
+    // })
+    //
+    // // TODO: Need watermark first
+    // FileSystem.writeFile(`public/imagens/${info.id+'.'+info.extensao}`, request.payload.picture,
+    //   (error) => {
+    //     if (error) {
+    //       debug(error)
+    //       reply(new Error('Token not valid!'))
+    //     } else {
+    //       watermarkImage(`public/imagens/${info.id+'.'+info.extensao}`);
+    //     }
+    //
+    // })
+
+    // reply({'id': info.id})
+    reply({'id': TokenGenerator.generate()})
+  },
+  config: {
+    description: 'Criar Imagem',
+    validate: {
+      payload: Joi.object({
+        description: Joi.string(),
+        picture: Joi.binary()
+      })
+    }
+  }
+}
+
+
 const post = {
   method: 'POST',
   path: '/upload',
@@ -174,6 +240,7 @@ const getExtension = {
 }
 
 module.exports = {
+  'postImagem': postImagem,
   'post': post,
   'get': get,
   'getExtension': getExtension
