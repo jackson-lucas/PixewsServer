@@ -38,7 +38,7 @@ const post = {
     info.id = TokenGenerator.generate()
 
     debug('file')
-    debug(request.payload.picture)
+    // debug(request.payload.picture)
     debug('info.extensao')
     info.fotografo_id = info.fotografo_id.replace(/-/g,'')
     debug(info)
