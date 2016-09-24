@@ -15,6 +15,7 @@ const get = {
   method: 'GET',
   path: '/imagens',
   handler: function (request, reply) {
+    debug('get imagens')
     if(TokenGenerator.isValid(request.headers.token)) {
       var query = ''
       var parameters = request.query.tags.split(' ')
@@ -75,6 +76,7 @@ const getMaisVendidas = {
   method: 'GET',
   path: '/imagens/mais-vendidas',
   handler: function (request, reply) {
+    debug('get imagens mais vendidas')
     if(TokenGenerator.isValid(request.headers.token)) {
       var query = ''
       var parameters = request.query.tags.split(' ')
