@@ -77,6 +77,7 @@ const postImagem = {
         } else {
           watermarkImage(`public/imagens/${description.id+'.'+description.extensao}`);
         }
+      })
     reply({'id': description.id})
   },
   config: {
