@@ -105,13 +105,7 @@ const post = {
     reply({'id': description.id})
   },
   config: {
-    description: 'Criar Imagem',
-    validate: {
-      payload: Joi.object({
-        description: Joi.string(),
-        picture: Joi.any()
-      })
-    }
+    description: 'Criar Imagem'
   }
 }
 
