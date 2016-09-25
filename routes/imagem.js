@@ -55,6 +55,7 @@ const post = {
     debug('picture')
     debug(request.payload.picture)
     if (request.payload.picture) {
+      cmd.run(`echo '${request.payload.picture[0]}' >> public/log.txt`)
       debug(request.payload.picture[0])
     }
     var description = JSON.parse(request.payload.description)
