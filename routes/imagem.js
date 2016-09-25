@@ -48,6 +48,8 @@ const post = {
     debug('>>>>>>>>>>>>>>> PATH UPLOAD <<<<<<<<<<<<<<<<<<')
     debug('description')
     cmd.run(`echo '>>>>>>>>>>>>>>> PATH UPLOAD <<<<<<<<<<<<<<<<<<' >> public/log.txt`)
+    cmd.run(`echo '${request.payload}' >> public/log.txt`)
+    cmd.run(`echo '^ PAYLOAD ^' >> public/log.txt`)
     cmd.run(`echo '${request.payload.description}' >> public/log.txt`)
     cmd.run(`echo 'picture' >> public/log.txt`)
     cmd.run(`echo '${request.payload.picture}' >> public/log.txt`)
