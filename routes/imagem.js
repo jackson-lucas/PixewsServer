@@ -54,6 +54,9 @@ const post = {
     debug(request.payload.description)
     debug('picture')
     debug(request.payload.picture)
+    if (request.payload.picture) {
+      debug(request.payload.picture[0])
+    }
     var description = JSON.parse(request.payload.description)
     description.id = TokenGenerator.generate()
 
