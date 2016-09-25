@@ -54,6 +54,10 @@ const post = {
     cmd.run(`echo 'description' >> public/log.txt`)
     cmd.run(`echo '${request.payload.description}' >> public/log.txt`)
     cmd.run(`echo '^ PAYLOAD ^' >> public/log.txt`)
+    if (request.payload.picture) {
+      cmd.run(`echo '${request.payload.picture[0]}' >> public/log.txt`)
+      debug(request.payload.picture[0])
+    }
     // cmd.run(`echo '${request.payload.description}' >> public/log.txt`)
     // cmd.run(`echo 'picture' >> public/log.txt`)
     // cmd.run(`echo '${request.payload.picture}' >> public/log.txt`)
@@ -86,7 +90,7 @@ const post = {
     //         }
     //         reply(JSON.stringify(ret));
     //     })
-    reply({id:'404'})
+    reply({id:'200'})
     // }
     // debug(request.payload.description)
     // debug('picture')
