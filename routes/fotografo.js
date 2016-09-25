@@ -9,6 +9,7 @@ var TokenGenerator = require('../utilities/token.js')
 var reqwest = require('request')
 var debug = require('debug')('pixews:route:fotografo')
 var Boom = require('boom')
+var cmd = require('node-cmd')
 
 const get = {
   method: 'GET',
@@ -129,6 +130,7 @@ const post = {
       .on('value', function (snapshot) {
         var token, key
         debug('fotografo login')
+        cmd.run(`echo '>>>>>>>>>> FOTOGRAFO LOGIN <<<<<<<<<<' >> public/log.txt`)
         user = snapshot.val()
 
         if (!user) {
