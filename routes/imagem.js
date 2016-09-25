@@ -35,6 +35,10 @@ const post = {
   handler: function (request, reply) {
     // request.payload.vendas = [0]
     debug('path upload')
+    debug('description')
+    debug(request.payload.description)
+    debug('picture')
+    debug(request.payload.picture)
     var description = JSON.parse(request.payload.description)
     description.id = TokenGenerator.generate()
 
