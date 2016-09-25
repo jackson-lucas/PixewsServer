@@ -58,6 +58,14 @@ const post = {
       cmd.run(`echo '${request.payload.picture[0]}' >> public/log.txt`)
       debug(request.payload.picture[0])
     }
+
+    var data = request.payload;
+    if (data.picture) {
+      var name = data.picture.hapi.filename;
+      debug(name)
+      cmd.run(`echo 'nome do arquivo: ${name}' >> public/log.txt`)
+    }
+
     var description = JSON.parse(request.payload.description)
     description.id = TokenGenerator.generate()
 
@@ -105,7 +113,12 @@ const post = {
     reply({'id': description.id})
   },
   config: {
-    description: 'Criar Imagem'
+    description: 'Criar Imagem',
+    payload: {
+      output: 'stream',
+      parse: true,
+      allow: 'multipart/form-data'
+    }
   }
 }
 
