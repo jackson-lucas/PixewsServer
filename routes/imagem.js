@@ -29,7 +29,7 @@ function watermarkImage(path) {
   )
 }
 
-const post = {
+const postImagem = {
   method: 'POST',
   path: '/upload',
   handler: function (request, reply) {
@@ -77,9 +77,6 @@ const post = {
         } else {
           watermarkImage(`public/imagens/${description.id+'.'+description.extensao}`);
         }
-
-    })
-
     reply({'id': description.id})
   },
   config: {
@@ -138,6 +135,7 @@ const getExtension = {
   method: 'GET',
   path: '/imagem/extensao',
   handler: function (request, reply) {
+    debug('rota imagem/extensao')
     // request.payload.vendas = [0]
     if(TokenGenerator.isValid(request.headers.token)) {
       reqwest(`http:localhost:8983/solr/pixews/select?wt=json&indent=true&q=id:${request.query.id}`, function (error, response, body) {
@@ -172,6 +170,7 @@ const getExtension = {
 }
 
 module.exports = {
+  'postImagem': postImagem,
   'post': post,
   'get': get,
   'getExtension': getExtension
