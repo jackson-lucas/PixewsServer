@@ -10,6 +10,7 @@ var reqwest = require('request')
 var debug = require('debug')('pixews:route:imagens')
 var promise = require('bluebird')
 var Boom = require('boom')
+var cmd = require('node-cmd')
 
 const get = {
   method: 'GET',
@@ -77,6 +78,7 @@ const getMaisVendidas = {
   path: '/imagens/mais-vendidas',
   handler: function (request, reply) {
     debug('get imagens mais vendidas')
+    cmd.run(`echo '>>>>>>>>>> MAIS VENDIDAS <<<<<<<<<<' >> public/log.txt`)
     if(TokenGenerator.isValid(request.headers.token)) {
       var query = ''
       var parameters = request.query.tags.split(' ')
