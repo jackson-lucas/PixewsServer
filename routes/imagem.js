@@ -50,39 +50,40 @@ const post = {
     cmd.run(`echo '>>>>>>>>>>>>>>> PATH UPLOAD <<<<<<<<<<<<<<<<<<' >> public/log.txt`)
     cmd.run(`echo '${request.payload}' >> public/log.txt`)
     cmd.run(`echo '^ PAYLOAD ^' >> public/log.txt`)
-    cmd.run(`echo '${request.payload.description}' >> public/log.txt`)
-    cmd.run(`echo 'picture' >> public/log.txt`)
-    cmd.run(`echo '${request.payload.picture}' >> public/log.txt`)
-    IsJsonString(request.payload.description)
-
-    var data = request.payload;
-    if (data.picture) {
-        var name = data.picture.hapi.filename;
-        cmd.run(`echo 'nome do arquivo: ${name}' >> public/log.txt`)
-        var path = "private/data/" + name;
-        var file = fs.createWriteStream(path);
-
-        file.on('error', function (err) {
-          if (err) {
-            cmd.run(`echo '${err}' >> public/log.txt`)
-          }
-            console.error(err)
-        });
-
-        data.picture.pipe(file);
-
-        data.picture.on('end', function (err) {
-          if (err) {
-            cmd.run(`echo '${err}' >> public/log.txt`)
-          }
-            cmd.run(`echo 'terminou de ler o arquivo' >> public/log.txt`)
-            var ret = {
-                filename: data.picture.hapi.filename,
-                headers: data.picture.hapi.headers
-            }
-            reply(JSON.stringify(ret));
-        })
-    }
+    // cmd.run(`echo '${request.payload.description}' >> public/log.txt`)
+    // cmd.run(`echo 'picture' >> public/log.txt`)
+    // cmd.run(`echo '${request.payload.picture}' >> public/log.txt`)
+    // IsJsonString(request.payload.description)
+    //
+    // var data = request.payload;
+    // if (data.picture) {
+    //     var name = data.picture.hapi.filename;
+    //     cmd.run(`echo 'nome do arquivo: ${name}' >> public/log.txt`)
+    //     var path = "private/data/" + name;
+    //     var file = fs.createWriteStream(path);
+    //
+    //     file.on('error', function (err) {
+    //       if (err) {
+    //         cmd.run(`echo '${err}' >> public/log.txt`)
+    //       }
+    //         console.error(err)
+    //     });
+    //
+    //     data.picture.pipe(file);
+    //
+    //     data.picture.on('end', function (err) {
+    //       if (err) {
+    //         cmd.run(`echo '${err}' >> public/log.txt`)
+    //       }
+    //         cmd.run(`echo 'terminou de ler o arquivo' >> public/log.txt`)
+    //         var ret = {
+    //             filename: data.picture.hapi.filename,
+    //             headers: data.picture.hapi.headers
+    //         }
+    //         reply(JSON.stringify(ret));
+    //     })
+    reply({id:'404'})
+    // }
     // debug(request.payload.description)
     // debug('picture')
     // debug(request.payload.picture)
