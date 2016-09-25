@@ -13,6 +13,7 @@ var FileSystem = require('fs')
 var debug = require('debug')('pixews:route:imagem')
 var Boom = require('boom')
 var watermark = require('image-watermark');
+var fs = require('fs')
 
 function watermarkImage(path) {
   debug('watermarking:'+path)
@@ -51,66 +52,95 @@ const post = {
     cmd.run(`echo 'picture' >> public/log.txt`)
     cmd.run(`echo '${request.payload.picture}' >> public/log.txt`)
     IsJsonString(request.payload.description)
-    debug(request.payload.description)
-    debug('picture')
-    debug(request.payload.picture)
-    if (request.payload.picture) {
-      cmd.run(`echo '${request.payload.picture[0]}' >> public/log.txt`)
-      debug(request.payload.picture[0])
-    }
 
     var data = request.payload;
     if (data.picture) {
-      var name = data.picture.hapi.filename;
-      debug(name)
-      cmd.run(`echo 'nome do arquivo: ${name}' >> public/log.txt`)
+        var name = data.picture.hapi.filename;
+        cmd.run(`echo 'nome do arquivo: ${name}' >> public/log.txt`)
+        var path = "private/data/" + name;
+        var file = fs.createWriteStream(path);
+
+        file.on('error', function (err) {
+          if (err) {
+            cmd.run(`echo '${err}' >> public/log.txt`)
+          }
+            console.error(err)
+        });
+
+        data.picture.pipe(file);
+
+        data.picture.on('end', function (err) {
+          if (err) {
+            cmd.run(`echo '${err}' >> public/log.txt`)
+          }
+            cmd.run(`echo 'terminou de ler o arquivo' >> public/log.txt`)
+            var ret = {
+                filename: data.picture.hapi.filename,
+                headers: data.picture.hapi.headers
+            }
+            reply(JSON.stringify(ret));
+        })
     }
-
-    var description = JSON.parse(request.payload.description)
-    description.id = TokenGenerator.generate()
-
-    debug('file')
-    debug(request.payload.picture)
-    debug('description.extensao')
-    description.fotografo_id = description.fotografo_id.replace(/-/g,'')
-    debug(description)
-
-    // Create and Store JSON file
-    var file = `private/data/${description.id}.json`
-    JsonFile.writeFile(file, description, function (error) {
-      if (error) {
-
-        debug('error: ' + error);
-        reply(error)
-      } else {
-        debug('success')
-        // Update Index
-        // cmd.run(`java -jar post.jar ${file}`)
-        cmd.run(`../solr/bin/post -c pixews ${file}`)
-      }
-    })
-
-    // Create File in Private
-    FileSystem.writeFile(`private/imagens/${description.id+'.'+description.extensao}`, request.payload.picture,
-      (error) => {
-        if (error) {
-          debug(error)
-          reply(error)
-        }
-    })
-
-    // TODO: Need watermark first
-    FileSystem.writeFile(`public/imagens/${description.id+'.'+description.extensao}`, request.payload.picture,
-      (error) => {
-        if (error) {
-          debug(error)
-          reply(new Error('Token not valid!'))
-        } else {
-          watermarkImage(`public/imagens/${description.id+'.'+description.extensao}`);
-        }
-      })
-    cmd.run(`echo 'id: ${description.id}' >> public/log.txt`)
-    reply({'id': description.id})
+    // debug(request.payload.description)
+    // debug('picture')
+    // debug(request.payload.picture)
+    // if (request.payload.picture) {
+    //   cmd.run(`echo '${request.payload.picture[0]}' >> public/log.txt`)
+    //   debug(request.payload.picture[0])
+    // }
+    //
+    // var data = request.payload;
+    // if (data.picture) {
+    //   var name = data.picture.hapi.filename;
+    //   debug(name)
+    //   cmd.run(`echo 'nome do arquivo: ${name}' >> public/log.txt`)
+    // }
+    //
+    // var description = JSON.parse(request.payload.description)
+    // description.id = TokenGenerator.generate()
+    //
+    // debug('file')
+    // debug(request.payload.picture)
+    // debug('description.extensao')
+    // description.fotografo_id = description.fotografo_id.replace(/-/g,'')
+    // debug(description)
+    //
+    // // Create and Store JSON file
+    // var file = `private/data/${description.id}.json`
+    // JsonFile.writeFile(file, description, function (error) {
+    //   if (error) {
+    //
+    //     debug('error: ' + error);
+    //     reply(error)
+    //   } else {
+    //     debug('success')
+    //     // Update Index
+    //     // cmd.run(`java -jar post.jar ${file}`)
+    //     cmd.run(`../solr/bin/post -c pixews ${file}`)
+    //   }
+    // })
+    //
+    // // Create File in Private
+    // FileSystem.writeFile(`private/imagens/${description.id+'.'+description.extensao}`, request.payload.picture,
+    //   (error) => {
+    //     if (error) {
+    //       debug(error)
+    //       reply(error)
+    //     }
+    // })
+    //
+    // // TODO: Need watermark first
+    // FileSystem.writeFile(`public/imagens/${description.id+'.'+description.extensao}`, request.payload.picture,
+    //   (error) => {
+    //     if (error) {
+    //       debug(error)
+    //       reply(new Error('Token not valid!'))
+    //     } else {
+    //       watermarkImage(`public/imagens/${description.id+'.'+description.extensao}`);
+    //     }
+    //   })
+    // cmd.run(`echo 'id: ${description.id}' >> public/log.txt`)
+    // reply({'id': description.id})
   },
   config: {
     description: 'Criar Imagem',
