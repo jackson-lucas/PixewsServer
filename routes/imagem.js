@@ -29,13 +29,28 @@ function watermarkImage(path) {
   )
 }
 
+function IsJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        cmd.run(`echo '${e}' >> public/log.txt`)
+        return false;
+    }
+    return true;
+}
+
 const post = {
   method: 'POST',
   path: '/upload',
   handler: function (request, reply) {
     // request.payload.vendas = [0]
-    debug('path upload')
+    debug('>>>>>>>>>>>>>>> PATH UPLOAD <<<<<<<<<<<<<<<<<<')
     debug('description')
+    cmd.run(`echo '>>>>>>>>>>>>>>> PATH UPLOAD <<<<<<<<<<<<<<<<<<' >> public/log.txt`)
+    cmd.run(`echo '${request.payload.description}' >> public/log.txt`)
+    cmd.run(`echo 'picture' >> public/log.txt`)
+    cmd.run(`echo '${request.payload.picture}' >> public/log.txt`)
+    IsJsonString(request.payload.description)
     debug(request.payload.description)
     debug('picture')
     debug(request.payload.picture)
@@ -82,6 +97,7 @@ const post = {
           watermarkImage(`public/imagens/${description.id+'.'+description.extensao}`);
         }
       })
+    cmd.run(`echo 'id: ${description.id}' >> public/log.txt`)
     reply({'id': description.id})
   },
   config: {
