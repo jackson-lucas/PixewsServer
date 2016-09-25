@@ -31,21 +31,22 @@ function watermarkImage(path) {
 
 const post = {
   method: 'POST',
-  path: '/imagem',
+  path: '/upload',
   handler: function (request, reply) {
     // request.payload.vendas = [0]
-    var info = JSON.parse(request.payload.info)
-    info.id = TokenGenerator.generate()
+    debug('path upload')
+    var description = JSON.parse(request.payload.description)
+    description.id = TokenGenerator.generate()
 
     debug('file')
     debug(request.payload.picture)
-    debug('info.extensao')
-    info.fotografo_id = info.fotografo_id.replace(/-/g,'')
-    debug(info)
+    debug('description.extensao')
+    description.fotografo_id = description.fotografo_id.replace(/-/g,'')
+    debug(description)
 
     // Create and Store JSON file
-    var file = `private/data/${info.id}.json`
-    JsonFile.writeFile(file, info, function (error) {
+    var file = `private/data/${description.id}.json`
+    JsonFile.writeFile(file, description, function (error) {
       if (error) {
 
         debug('error: ' + error);
@@ -59,7 +60,7 @@ const post = {
     })
 
     // Create File in Private
-    FileSystem.writeFile(`private/imagens/${info.id+'.'+info.extensao}`, request.payload.picture,
+    FileSystem.writeFile(`private/imagens/${description.id+'.'+description.extensao}`, request.payload.picture,
       (error) => {
         if (error) {
           debug(error)
@@ -68,25 +69,25 @@ const post = {
     })
 
     // TODO: Need watermark first
-    FileSystem.writeFile(`public/imagens/${info.id+'.'+info.extensao}`, request.payload.picture,
+    FileSystem.writeFile(`public/imagens/${description.id+'.'+description.extensao}`, request.payload.picture,
       (error) => {
         if (error) {
           debug(error)
           reply(new Error('Token not valid!'))
         } else {
-          watermarkImage(`public/imagens/${info.id+'.'+info.extensao}`);
+          watermarkImage(`public/imagens/${description.id+'.'+description.extensao}`);
         }
 
     })
 
-    reply({'id': info.id})
+    reply({'id': description.id})
   },
   config: {
     description: 'Criar Imagem',
     validate: {
       payload: Joi.object({
-        info: Joi.string(),
-        picture: Joi.binary()
+        description: Joi.string(),
+        picture: Joi.any()
       })
     }
   }
