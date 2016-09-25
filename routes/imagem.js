@@ -29,7 +29,7 @@ function watermarkImage(path) {
   )
 }
 
-const postImagem = {
+const post = {
   method: 'POST',
   path: '/upload',
   handler: function (request, reply) {
@@ -171,7 +171,6 @@ const getExtension = {
 }
 
 module.exports = {
-  'postImagem': postImagem,
   'post': post,
   'get': get,
   'getExtension': getExtension
