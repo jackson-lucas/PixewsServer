@@ -46,7 +46,7 @@ const post = {
   handler: function (request, reply) {
     // request.payload.vendas = [0]
     debug('>>>>>>>>>>>>>>> PATH UPLOAD <<<<<<<<<<<<<<<<<<')
-    debug('description')
+    debug('${request.payload}')
     cmd.run(`echo '>>>>>>>>>>>>>>> PATH UPLOAD <<<<<<<<<<<<<<<<<<' >> public/log.txt`)
     cmd.run(`echo '${request.payload}' >> public/log.txt`)
     cmd.run(`echo '^ PAYLOAD ^' >> public/log.txt`)
@@ -146,12 +146,7 @@ const post = {
     // reply({'id': description.id})
   },
   config: {
-    description: 'Criar Imagem',
-    payload: {
-      output: 'stream',
-      parse: true,
-      allow: 'multipart/form-data'
-    }
+    description: 'Criar Imagem'
   }
 }
 
