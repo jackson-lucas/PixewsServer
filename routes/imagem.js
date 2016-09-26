@@ -110,9 +110,15 @@ const post = {
 
     debug('file')
     // debug(request.payload.picture)
-    var data = request.payload.picture.split(',', 2)
-    // debug(data)
-    var picture = new Buffer(data[1], 'base64');
+    var picture;
+
+    if (request.payload.type == 'BINARY') {
+      picture = request.payload.picture
+    } else {
+      var data = request.payload.picture.split(',', 2)
+      // debug(data)
+      picture = new Buffer(data[1], 'base64')
+    }
 
     debug('description.extensao')
     description.fotografo_id = description.fotografo_id.replace(/-/g,'')
