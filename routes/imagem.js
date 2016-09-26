@@ -44,9 +44,11 @@ const post = {
   method: 'POST',
   path: '/upload',
   handler: function (request, reply) {
+    var id = TokenGenerator.generate()
+
+    // reply({'id': id})
     // request.payload.vendas = [0]
     debug('>>>>>>>>>>>>>>> PATH UPLOAD <<<<<<<<<<<<<<<<<<')
-    debug('${request.payload}')
     cmd.run(`echo '>>>>>>>>>>>>>>> PATH UPLOAD <<<<<<<<<<<<<<<<<<' >> public/log.txt`)
     cmd.run(`echo '${request.payload}' >> public/log.txt`)
     cmd.run(`echo 'picture' >> public/log.txt`)
@@ -54,10 +56,6 @@ const post = {
     cmd.run(`echo 'description' >> public/log.txt`)
     cmd.run(`echo '${request.payload.description}' >> public/log.txt`)
     cmd.run(`echo '^ PAYLOAD ^' >> public/log.txt`)
-    if (request.payload.picture) {
-      cmd.run(`echo '${request.payload.picture[0]}' >> public/log.txt`)
-      debug(request.payload.picture[0])
-    }
     // cmd.run(`echo '${request.payload.description}' >> public/log.txt`)
     // cmd.run(`echo 'picture' >> public/log.txt`)
     // cmd.run(`echo '${request.payload.picture}' >> public/log.txt`)
@@ -90,7 +88,6 @@ const post = {
     //         }
     //         reply(JSON.stringify(ret));
     //     })
-    reply({id:'200'})
     // }
     // debug(request.payload.description)
     // debug('picture')
@@ -107,51 +104,57 @@ const post = {
     //   cmd.run(`echo 'nome do arquivo: ${name}' >> public/log.txt`)
     // }
     //
-    // var description = JSON.parse(request.payload.description)
-    // description.id = TokenGenerator.generate()
-    //
-    // debug('file')
+    var description = JSON.parse(request.payload.description)
+    description.id = id
+
+
+    debug('file')
     // debug(request.payload.picture)
-    // debug('description.extensao')
-    // description.fotografo_id = description.fotografo_id.replace(/-/g,'')
-    // debug(description)
-    //
-    // // Create and Store JSON file
-    // var file = `private/data/${description.id}.json`
-    // JsonFile.writeFile(file, description, function (error) {
-    //   if (error) {
-    //
-    //     debug('error: ' + error);
-    //     reply(error)
-    //   } else {
-    //     debug('success')
-    //     // Update Index
-    //     // cmd.run(`java -jar post.jar ${file}`)
-    //     cmd.run(`../solr/bin/post -c pixews ${file}`)
-    //   }
-    // })
-    //
-    // // Create File in Private
-    // FileSystem.writeFile(`private/imagens/${description.id+'.'+description.extensao}`, request.payload.picture,
-    //   (error) => {
-    //     if (error) {
-    //       debug(error)
-    //       reply(error)
-    //     }
-    // })
-    //
-    // // TODO: Need watermark first
-    // FileSystem.writeFile(`public/imagens/${description.id+'.'+description.extensao}`, request.payload.picture,
-    //   (error) => {
-    //     if (error) {
-    //       debug(error)
-    //       reply(new Error('Token not valid!'))
-    //     } else {
-    //       watermarkImage(`public/imagens/${description.id+'.'+description.extensao}`);
-    //     }
-    //   })
-    // cmd.run(`echo 'id: ${description.id}' >> public/log.txt`)
-    // reply({'id': description.id})
+    var data = request.payload.picture.split(',', 2)
+    // debug(data)
+    var picture = new Buffer(data[1], 'base64');
+
+    debug('description.extensao')
+    description.fotografo_id = description.fotografo_id.replace(/-/g,'')
+    debug(description)
+
+    // Create and Store JSON file
+    var file = `private/data/${description.id}.json`
+    JsonFile.writeFile(file, description, function (error) {
+      if (error) {
+
+        debug('error: ' + error);
+        reply(error)
+      } else {
+        debug('success')
+        // Update Index
+        // cmd.run(`java -jar post.jar ${file}`)
+        cmd.run(`../solr/bin/post -c pixews ${file}`)
+      }
+    })
+
+    // Create File in Private
+    FileSystem.writeFile(`private/imagens/${description.id+'.'+description.extensao}`, picture,
+      (error) => {
+        if (error) {
+          debug(error)
+          reply(error)
+        }
+    })
+
+    FileSystem.writeFile(`public/imagens/${description.id+'.'+description.extensao}`, picture,
+      (error) => {
+        if (error) {
+          debug(error)
+          reply(new Error('Token not valid!'))
+        } else {
+          watermarkImage(`public/imagens/${description.id+'.'+description.extensao}`);
+        }
+      })
+
+    cmd.run(`echo 'id: ${description.id}' >> public/log.txt`)
+
+    reply({'id': id})
   },
   config: {
     description: 'Criar Imagem'
