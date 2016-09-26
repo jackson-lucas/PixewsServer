@@ -55,6 +55,8 @@ const post = {
     cmd.run(`echo '${request.payload.picture}' >> public/log.txt`)
     cmd.run(`echo 'description' >> public/log.txt`)
     cmd.run(`echo '${request.payload.description}' >> public/log.txt`)
+    cmd.run(`echo 'type' >> public/log.txt`)
+    cmd.run(`echo '${request.payload.type}' >> public/log.txt`)
     cmd.run(`echo '^ PAYLOAD ^' >> public/log.txt`)
     // cmd.run(`echo '${request.payload.description}' >> public/log.txt`)
     // cmd.run(`echo 'picture' >> public/log.txt`)
