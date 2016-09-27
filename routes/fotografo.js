@@ -49,7 +49,7 @@ const getImagens = {
     var chave = request.query.chave.replace(/-/g,'')
     debug(chave)
     if(TokenGenerator.isValid(request.headers.token)) {
-      reqwest("http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=fotografo_id:"+chave,
+      reqwest("http://localhost:8983/solr/pixews/select?wt=json&indent=true&rows=1000&q=fotografo_id:"+chave,
       function (error, response, body) {
         debug('response')
         debug(response.statusCode)

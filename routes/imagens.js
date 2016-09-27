@@ -35,9 +35,9 @@ const get = {
 
       var link;
       if (lat && lon) {
-         link = `http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}&fq={!geofilt%20sfield=localizacao}&pt=${lat},${lon}&d=1000`
+         link = `http://localhost:8983/solr/pixews/select?wt=json&indent=true&rows=1000&q=${query}&fq={!geofilt%20sfield=localizacao}&pt=${lat},${lon}&d=1000`
       } else {
-        link = `http://localhost:8983/solr/pixews/select?wt=json&indent=true&q=${query}`
+        link = `http://localhost:8983/solr/pixews/select?wt=json&indent=true&rows=1000&q=${query}`
       }
 
       reqwest(link, function (error, response, body) {
