@@ -2,7 +2,7 @@
 
 function homePageController ($scope, $location) {
   angular.element(document).ready(function () {
-    $('.jumbotron').height($('body').height())
+    $('.jumbotron').height(600)
     $('.jumbotron').css('margin-bottom', '0px')
   })
 
@@ -10,6 +10,22 @@ function homePageController ($scope, $location) {
     // 'Enter' key code
     if (keyCode == 13) {
       $scope.search(tags);
+    }
+  }
+
+  $scope.sendEmail = function sendEmail (name, email, message) {
+    if (name && email && message) {
+      $.notify({
+        message: 'Email enviado com sucesso'
+      },{
+        type: 'success'
+      });
+    } else {
+      $.notify({
+        message: 'Campo vazio'
+      },{
+        type: 'danger'
+      });
     }
   }
 

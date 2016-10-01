@@ -1,3 +1,5 @@
+<div class="home-page">
+
 <div class="jumbotron">
   <div class="container jumbotron-container">
     <h1>Pixews</h1>
@@ -10,3 +12,172 @@
     </div>
   </div>
 </div>
+  <!-- Download -->
+  <!-- <section id="download" class="download bg-section text-center">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-8 col-md-offset-2">
+                      <h2 class="section-heading">Gosta de tirar fotos?</h2>
+                      <p>Baixe nosso aplicativo disponível na Google Play Store</p>
+                      <div class="badges">
+                          <a class="badge-link" href="#"><img src="images/google-play-badge.png" alt=""></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+  </section>-->
+  <section id="services" class="bg-section-inverted">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Aqui você consegue a notícia antes dela chegar até você</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="images/magnifier-64.png" alt="" />
+                        <h3>Busca</h3>
+                        <p class="text-muted">Encontre facilmente o que deseja de maneira simples utilizando a nossa barra de busca</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="images/shopping-cart-64.png" alt="" />
+                        <h3>Compras</h3>
+                        <p class="text-muted">Selecione as imagens que deseja e vá adicionando ao carrinho de compras;</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="images/currency-64.png" alt="" />
+                        <h3>Preço</h3>
+                        <p class="text-muted">Cada imagem tem o valor único de apenas R$ 30,00</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="images/card-64.png" alt="" />
+                        <h3>Formas de Pagamento</h3>
+                        <p class="text-muted">Temos diversas opções de pagamento para sua comodidade</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  <!-- Contact Section -->
+      <section id="contact" class="bg-section">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12 text-center">
+                      <h2>Entre em contato conosco</h2>
+                      <hr class="star-primary">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2">
+                      <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                      <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                      <form name="sentMessage" id="contactForm" novalidate>
+                          <div class="row control-group">
+                              <div class="form-group col-xs-12 floating-label-form-group controls">
+                                  <label>Nome</label>
+                                  <input ng-model="name" type="text" class="form-control" placeholder="Nome" id="name" required data-validation-required-message="Por favor coloque seu nome">
+                                  <p class="help-block text-danger"></p>
+                              </div>
+                          </div>
+                          <div class="row control-group">
+                              <div class="form-group col-xs-12 floating-label-form-group controls">
+                                  <label>Email</label>
+                                  <input ng-model="email" type="email" class="form-control" placeholder="meu@email.com" id="email" required data-validation-required-message="Por favor coloque seu email">
+                                  <p class="help-block text-danger"></p>
+                              </div>
+                          </div>
+                          <div class="row control-group">
+                              <div class="form-group col-xs-12 floating-label-form-group controls">
+                                  <label>Mensagem</label>
+                                  <textarea ng-model="message" rows="5" class="form-control" placeholder="Mensagem" id="message" required data-validation-required-message="Por favor coloque uma mensagem"></textarea>
+                                  <p class="help-block text-danger"></p>
+                              </div>
+                          </div>
+                          <br>
+                          <div id="success"></div>
+                          <div class="row">
+                              <div class="form-group col-xs-12">
+                                  <button type="submit" ng-click="sendEmail(name, email, message)" class="btn btn-success btn-lg">Enviar</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above bg-section-inverted">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Endereço</h3>
+                        <p>Manaus, AM
+                            <br>6200, Coroado I -  69080-900</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3></h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><img src="images/facebook-64.png" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Sobre</h3>
+                        <p>Pixews é uma startup de vendas de fotos jornalísticas pela internet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below bg-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Pixews Technologies 2016
+                    </div>
+                </div>
+            </div>
+        </div>
+  </footer>
+</div>
+<!-- <div class="container jumbotron-container">
+  <p class="small" style="font-size:25px; color:white"><big>
+    #Encontre facilmente o que deseja de maneira simples utilizando a nossa barra de busca;
+  </p></big>
+</div>
+<div class="container jumbotron-container">
+  <p class="small" style="font-size:25px; color:white"><big>
+    #Selecione as imagens que deseja e clique em adicionar ao carrinho de compras;
+  </p></big>
+</div>
+<div class="container jumbotron-container">
+  <p class="small" style="font-size:25px; color:white"><big>
+    #Voce pode continuar adicionando imagens ou clicar no icone do carrinho para finalizar seu pedido;
+  </p></big>
+</div>
+<div class="container jumbotron-container">
+  <p class="small" style="font-size:25px; color:white"><big>
+    #Aqui voce consegue a noticia antes dela chegar ate voce;
+  </p></big>
+</div>
+<div class="container jumbotron-container">
+  <p class="small" style="font-size:25px; color:white"><big>
+    #cada imagem tem um valor unico de apenas R$ 30,00;
+  </p></big>
+</div>
+<div class="container jumbotron-container">
+  <p class="small" style="font-size:25px; color:white"><big>
+    #temos diversas opcoes de pagamento para sua comodidade
+  </p></big>
+</div> -->

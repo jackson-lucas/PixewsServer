@@ -84,3 +84,46 @@ a:hover {
   margin-top: 3rem;
   margin-bottom: 0rem;
 }
+
+.home-page {
+  background-color: #e7e7e7;
+  font-size: 16px;
+}
+
+.footer-above {
+  padding: 6rem;
+}
+
+.footer-below {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.bg-section {
+  background-color: #029BE5;
+  color: #fff;
+  font-size: 16px;
+}
+
+.bg-section-inverted {
+  color: #029BE5;
+  background-color: #fff;
+}
+
+hr.star-primary {
+  padding: 0;
+  border: none;
+  border-top: solid 5px;
+  text-align: center;
+  max-width: 250px;
+  margin: 25px auto 30px;
+}
+
+hr.star-primary {
+  border-color: #2C3E50;
+}
+
+hr.star-primary:after {
+  background-color: white;
+  color: #2C3E50;
+}
