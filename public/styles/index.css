@@ -74,6 +74,7 @@ a:hover {
 
 .jumbotron-container {
   padding: 5rem;
+  text-align: center;
 }
 
 .home-input-group > *, .home-input-group .btn {
