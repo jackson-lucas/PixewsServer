@@ -73,6 +73,7 @@ server.route(imagens.getMaisVendidas)
 
 server.route(imagem.post)
 server.route(imagem.get)
+server.route(imagem.getPrivate)
 server.route(imagem.getExtension)
 
 server.start((err) => {

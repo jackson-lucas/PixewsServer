@@ -210,6 +210,27 @@ const get = {
   }
 }
 
+const getPrivate = {
+  method: 'GET',
+  path: '/imagem/privado',
+  handler: function (request, reply) {
+    debug('get imagem privado')
+    // debug(TokenGenerator.generate())
+
+    // if(TokenGenerator.isValid(request.headers.token)) {
+      debug(request.query.id)
+      reply.file(`private/imagens/${request.query.id}.jpg`);
+    // } else {
+      // reply(Boom.badRequest('Token not valid!'))
+    // }
+
+
+  },
+  config: {
+    description: 'Imagem por Id Privado'
+  }
+}
+
 const getExtension = {
   method: 'GET',
   path: '/imagem/extensao',
@@ -251,5 +272,6 @@ const getExtension = {
 module.exports = {
   'post': post,
   'get': get,
+  'getPrivate': getPrivate,
   'getExtension': getExtension
 }
