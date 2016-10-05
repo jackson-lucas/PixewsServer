@@ -86,13 +86,12 @@ const put = {
 
     request.payload.foto_chaves.every(addVenda)
 
-    Promise.all(
-      [addCompraAsync(request, reply)])
+    addCompraAsync(request, reply)]
     .then(() => {
-      reply({message:'ok'})
+      return reply({message:'ok'})
     })
     .catch(error => {
-      reply(Boom.badRequest('Response Not Valid!'))
+      return reply(Boom.badRequest('Response Not Valid!'))
     })
 
   },
