@@ -43,9 +43,9 @@ function addCompraAsync(request, reply) {
     comprasReference.transaction(
       function (currentValue) {
         if (currentValue) {
-          currentValue.push(request.payload.foto_chave)
+          currentValue = currentValue.concat(request.payload.foto_chaves)
         } else {
-          currentValue = [request.payload.foto_chave]
+          currentValue = request.payload.foto_chaves
         }
         return currentValue
       },
@@ -84,9 +84,10 @@ const put = {
   path: '/transacao',
   handler: function (request, reply) {
 
+    request.payload.foto_chaves.every(addVenda)
+
     Promise.all(
-      [addCompraAsync(request, reply), addVenda(request.payload.foto_chave)
-    ])
+      [addCompraAsync(request, reply)])
     .then(() => {
       reply({message:'ok'})
     })
@@ -104,10 +105,10 @@ const put = {
         token: Joi.string().required()
       }).options({ allowUnknown: true }),
       payload: Joi.object({
-        foto_chave: Joi.string(),
+        foto_chaves: Joi.array().items(Joi.string()),
         empresa_chave: Joi.string()
       }).example({
-          "foto_chave": "12",
+          "foto_chaves": ["12"],
           "empresa_chave": "-VILWFyeto3QWooORdjr"
       })
     }
