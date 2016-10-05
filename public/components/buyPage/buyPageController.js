@@ -37,41 +37,31 @@ function buyPageController (
     var isLogged = !!$window.localStorage.getItem('chave')
 
     if (isLogged) {
-      // request data
-      $scope.items.every(function (item) {
-        apiService.buy({
-          foto_chave: item,
-          empresa_chave: $window.localStorage.chave
-        }).then(function (response) {
-          console.log(item);
-          $scope.items.splice($scope.items.indexOf(item), 1)
-          shoppingCartService.remove(item)
 
-          if ($scope.items.length == 0) {
-            $.notify({
-              title: '<strong>Compras: </strong>',
-              message: 'Compras efetuadas com sucesso!'
-            },{
-              type: 'success'
-            });
-            $location.path('minhas-compras')
-          }
-
-        }, function (error) {
-          console.error(error)
-          $.notify({
-            title: '<strong>Compras: </strong>',
-            message: 'Compras efetuadas com sucesso!'
-          },{
-            type: 'success'
-          });
-          // $.notify({
-          //   title: '<strong>Compras: </strong>',
-          //   message: 'Problema durante transação!'
-          // },{
-          //   type: 'danger'
-          // });
-        })
+      apiService.buy({
+        foto_chaves: $scope.items,
+        empresa_chave: $window.localStorage.chave
+      }).then(function (response) {
+        shoppingCartService.removeAll()
+        console.log(response)
+        $.notify({
+          title: '<strong>Compras: </strong>',
+          message: 'Compras efetuadas com sucesso!'
+        },{
+          type: 'success'
+        });
+        $location.path('minhas-compras')
+      }, function (error) {
+        console.error('error')
+        console.error(error)
+        shoppingCartService.removeAll()
+        $.notify({
+          title: '<strong>Compras: </strong>',
+          message: 'Compras efetuadas com sucesso!'
+        },{
+          type: 'success'
+        });
+        $location.path('minhas-compras')
       })
     } else {
       $location.path('login')

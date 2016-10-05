@@ -1,7 +1,7 @@
 <div class="row my-pictures-page-mosaic">
   <div ng-repeat="(index, picture) in results" class="col-xs-3 col-md-3">
-    <a ng-href="http://pixews.com/imagens/{{picture}}.jpg" class="thumbnail">
-      <img class="image img-rounded" ng-src="{{baseApi}}/imagens/{{picture}}.jpg">
+    <a ng-href="{{baseApi}}/imagem/privado?id={{picture}}" class="thumbnail">
+      <img class="image img-rounded" ng-src="{{baseApi}}/imagem/privado?id={{picture}}">
     </a>
   </div>
 </div>
