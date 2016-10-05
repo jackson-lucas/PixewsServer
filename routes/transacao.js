@@ -86,7 +86,7 @@ const put = {
 
     request.payload.foto_chaves.every(addVenda)
 
-    addCompraAsync(request, reply)]
+    addCompraAsync(request, reply)
     .then(() => {
       return reply({message:'ok'})
     })
