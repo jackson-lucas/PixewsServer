@@ -2,6 +2,7 @@ angular.module('pixewsWeb', [
   'ngRoute',
   'ngTouch',
   'ngAnimate',
+  'ngStorage',
   'angularModalService'
 ]);
 

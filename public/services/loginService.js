@@ -1,11 +1,11 @@
 (function () {
 
-  function loginService ($window, apiService, $location, shoppingCartService) {
+  function loginService ($window, apiService, $location, $localStorage, shoppingCartService) {
 
     var _login = {
-      isLogged: $window.localStorage.isLogged,
-      chave: $window.localStorage.chave,
-      token: $window.localStorage.token
+      isLogged: $localStorage.isLogged,
+      chave: $localStorage.chave,
+      token: $localStorage.token
     };
     var _subscribers = []
 
@@ -34,9 +34,9 @@
           console.log('logged')
           console.log(response)
 
-          $window.localStorage.isLogged = true
-          $window.localStorage.token = response.data.token
-          $window.localStorage.chave = response.data.chave
+          $localStorage.isLogged = true
+          $localStorage.token = response.data.token
+          $localStorage.chave = response.data.chave
 
           _login.isLogged = true
           _login.token = response.data.token
@@ -57,9 +57,9 @@
     }
 
     function logoff () {
-      $window.localStorage.isLogged = false
-      $window.localStorage.token = ''
-      $window.localStorage.chave = ''
+      $localStorage.isLogged = false
+      $localStorage.token = ''
+      $localStorage.chave = ''
 
       shoppingCartService.removeAll()
 

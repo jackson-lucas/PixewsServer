@@ -1,9 +1,10 @@
 (function () {
 
-function shoppingCartService($window) {
+function shoppingCartService($window, $localStorage) {
 
+  console.log($localStorage.shoppingCart);
   var _shoppingCart
-    = $window.localStorage.getItem('shoppingCart') ? $window.localStorage.getItem('shoppingCart').split(',') : []
+    = $localStorage.shoppingCart ? $localStorage.shoppingCart : []
   var _subscribers = []
 
   function hasItems () {
@@ -33,7 +34,7 @@ function shoppingCartService($window) {
     console.log('adding');
     if (_shoppingCart.indexOf(picture) == -1) {
       _shoppingCart.push(picture)
-      $window.localStorage.shoppingCart = _shoppingCart
+      $localStorage.shoppingCart = _shoppingCart
     }
 
     publish()
@@ -42,7 +43,7 @@ function shoppingCartService($window) {
   function remove (pictureId) {
     var index = _shoppingCart.indexOf(pictureId)
     _shoppingCart.splice(index, 1)
-    $window.localStorage.shoppingCart = _shoppingCart
+    $localStorage.shoppingCart = _shoppingCart
 
     publish()
   }
@@ -51,7 +52,7 @@ function shoppingCartService($window) {
     console.log('removeAll')
 
     _shoppingCart = []
-    $window.localStorage.shoppingCart = _shoppingCart
+    $localStorage.shoppingCart = _shoppingCart
 
     publish()
   }

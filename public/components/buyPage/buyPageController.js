@@ -4,6 +4,7 @@ function buyPageController (
   $scope,
   $location,
   $window,
+  $localStorage,
   ModalService,
   shoppingCartService,
   config,
@@ -34,13 +35,14 @@ function buyPageController (
   }
 
   $scope.buy = function () {
-    var isLogged = !!$window.localStorage.getItem('chave')
+    var isLogged = !!$localStorage.chave
 
     if (isLogged) {
-
+      console.log($scope.items);
+      console.log($localStorage.chave);
       apiService.buy({
         foto_chaves: $scope.items,
-        empresa_chave: $window.localStorage.chave
+        empresa_chave: $localStorage.chave
       }).then(function (response) {
         shoppingCartService.removeAll()
         console.log(response)

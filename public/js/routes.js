@@ -32,8 +32,8 @@ function routes($routeProvider) {
       templateUrl: "components/profilePage/profilePageTemplate.html",
       controller: "profilePageController",
       resolve: {
-        user: function (apiService, $window) {
-          return apiService.getUser($window.localStorage.getItem('chave'))
+        user: function (apiService, $window, $localStorage) {
+          return apiService.getUser($localStorage.chave)
         }
       }
     })
@@ -41,8 +41,8 @@ function routes($routeProvider) {
       templateUrl: "components/myPicturesPage/myPicturesPageTemplate.html",
       controller: "myPicturesPageController",
       resolve: {
-        results: function (apiService, $window) {
-          return apiService.getMyPictures($window.localStorage.getItem('chave'))
+        results: function (apiService, $window, $localStorage) {
+          return apiService.getMyPictures($localStorage.chave)
         }
       }
     })
